@@ -1,4 +1,4 @@
-import { Box, Table, TableContainer, Tbody, Th, Thead, Tr, Td } from "@chakra-ui/react";
+import { Box, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 
 function PatientsTable() {
     return (

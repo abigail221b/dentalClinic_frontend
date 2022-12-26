@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, CardFooter, Image, Heading, Divider, Button } from '@chakra-ui/react'
+import { Card, CardBody, CardFooter, Image, Heading, Button } from '@chakra-ui/react'
 
 function DentistCard() {
     return (
