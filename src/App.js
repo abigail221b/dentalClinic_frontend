@@ -1,8 +1,16 @@
+import Sidebar from "./components/Sidebar";
 import './App.css';
+import { Flex } from "@chakra-ui/layout";
+import { Outlet } from "react-router";
 
 function App() {
 	return (
-		<div className="App">App</div>
+		<div className="App">
+			<Flex>
+				<Sidebar />
+				<Outlet />
+			</Flex>
+		</div>
 	);
 }
 
