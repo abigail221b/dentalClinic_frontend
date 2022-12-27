@@ -4,7 +4,7 @@ import { FormControl, FormLabel, Input } from '@chakra-ui/react'
 function PatientSearchForm() {
     return (
         <Box>
-            <Heading>Search Patients</Heading>
+            <Heading size="md">Search Patients</Heading>
             <Flex flexDirection="column" gap="4">
                 <Flex>
                     <FormControl>
