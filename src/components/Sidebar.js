@@ -3,6 +3,7 @@ import { Box, Flex, Link, Text } from "@chakra-ui/react";
 import { BsGridFill, BsPersonBadgeFill, BsFillCalendar2EventFill, BsFillPersonLinesFill } from "react-icons/bs";
 
 function Sidebar() {
+
     return (
         <Flex style={ styles.sidebar }>
             <Box>
@@ -49,7 +50,9 @@ const styles = {
         width: "200px",
         height: "100vh",
         flexDirection: "column",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "#f2f5f5",
+        color: "#434242"
     },
     icon: {
         position: "relative",
