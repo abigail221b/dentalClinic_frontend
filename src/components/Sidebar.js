@@ -1,45 +1,48 @@
-import { Link as RouterLink } from "react-router-dom";
-import { Box, Flex, Link, Text } from "@chakra-ui/react";
+import { Flex, Stack } from "@chakra-ui/react";
 import { BsGridFill, BsPersonBadgeFill, BsFillCalendar2EventFill, BsFillPersonLinesFill } from "react-icons/bs";
+import { useState } from "react";
+import SidebarLink from "./SidebarLink";
 
 function Sidebar() {
 
+    const [selectedDashboard, setSelectedDashboard] = useState(dashboards.DASHBOARD);
+
     return (
         <Flex style={ styles.sidebar }>
-            <Box>
-                <Flex style={ styles.link }>
-                    <Box style={ styles.icon }>
-                        <BsGridFill/>
-                    </Box>
-                    <Text style={ styles.text }>
-                        <Link as={ RouterLink } to="/">Dashboard</Link>
-                    </Text>
-                </Flex>
-                <Flex style={ styles.link }>
-                    <Box style={ styles.icon }>
-                        <BsFillCalendar2EventFill />
-                    </Box>
-                    <Text style={ styles.text }>
-                        <Link as={ RouterLink } to="/appointments">Appointments</Link>
-                    </Text>
-                </Flex>
-                <Flex style={ styles.link }>
-                    <Box style={ styles.icon }>
-                        <BsFillPersonLinesFill />
-                    </Box>
-                    <Text style={ styles.text }>
-                        <Link as={ RouterLink } to="/patients">Patients</Link>
-                    </Text>
-                </Flex>
-                <Flex style={ styles.link }>
-                    <Box style={ styles.icon }>
-                        <BsPersonBadgeFill />
-                    </Box>
-                    <Text style={ styles.text }>
-                        <Link as={ RouterLink } to="/dentists">Dentists</Link>
-                    </Text>
-                </Flex>
-            </Box>
+            <Stack gap="7">
+                <SidebarLink 
+                    dashboard={ dashboards.DASHBOARD }
+                    icon={<BsGridFill />}
+                    url={"/"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
+                <SidebarLink 
+                    dashboard={ dashboards.APPOINTMENTS }
+                    icon={<BsFillCalendar2EventFill />}
+                    url={"/appointments"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
+                <SidebarLink 
+                    dashboard={ dashboards.PATIENTS }
+                    icon={<BsFillPersonLinesFill />}
+                    url={"/patients"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
+                <SidebarLink 
+                    dashboard={ dashboards.DENTISTS }
+                    icon={<BsPersonBadgeFill />}
+                    url={"/dentists"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
+            </Stack>
             
         </Flex>
     );
@@ -47,7 +50,7 @@ function Sidebar() {
 
 const styles = {
     sidebar: {
-        width: "200px",
+        width: "225px",
         height: "100vh",
         flexDirection: "column",
         justifyContent: "center",
@@ -59,14 +62,22 @@ const styles = {
         top: "-2px"
     },
     link: {
-        padding: "30px",
+        padding: "15px",
         gap: "7px",
-        alignItems: "center",
-    },
-    text: {
         fontSize: "large",
         fontWeight: "bold"
+    },
+    selectedLink: {
+        color: "#0abab5",
+        borderRight: "10px solid #0abab5"
     }
 };
+
+const dashboards = {
+    DASHBOARD: "Dashboard",
+    APPOINTMENTS: "Appointments",
+    PATIENTS: "Patients",
+    DENTISTS: "Dentists"
+}
 
 export default Sidebar;
