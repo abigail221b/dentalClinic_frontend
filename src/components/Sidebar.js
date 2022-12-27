@@ -1,7 +1,7 @@
-import { Link as RouterLink } from "react-router-dom";
-import { Box, Flex, HStack, Link, LinkBox, LinkOverlay, Stack, Text } from "@chakra-ui/react";
+import { Flex, Stack } from "@chakra-ui/react";
 import { BsGridFill, BsPersonBadgeFill, BsFillCalendar2EventFill, BsFillPersonLinesFill } from "react-icons/bs";
 import { useState } from "react";
+import SidebarLink from "./SidebarLink";
 
 function Sidebar() {
 
@@ -10,62 +10,38 @@ function Sidebar() {
     return (
         <Flex style={ styles.sidebar }>
             <Stack gap="7">
-                <LinkBox 
-                    as={ RouterLink } 
-                    to="/"
-                    onClick={() => setSelectedDashboard(dashboards.DASHBOARD)} 
-                    style={{...styles.link, ...(selectedDashboard === dashboards.DASHBOARD && styles.selectedLink )}}>
-                    <LinkOverlay>
-                        <HStack>
-                            <Box style={ styles.icon }>
-                                <BsGridFill />
-                            </Box>
-                            <Text>{ dashboards.DASHBOARD }</Text>
-                        </HStack>
-                    </LinkOverlay>
-                </LinkBox>
-                <LinkBox 
-                    as={ RouterLink } 
-                    to="/appointments"
-                    onClick={() => setSelectedDashboard(dashboards.APPOINTMENTS)} 
-                    style={{...styles.link, ...(selectedDashboard === dashboards.APPOINTMENTS && styles.selectedLink )}}>
-                    <LinkOverlay>
-                        <HStack>
-                            <Box style={ styles.icon }>
-                                <BsFillCalendar2EventFill />
-                            </Box>
-                            <Text>{ dashboards.APPOINTMENTS }</Text>
-                        </HStack>
-                    </LinkOverlay>
-                </LinkBox>
-                <LinkBox 
-                    as={ RouterLink } 
-                    to="/patients" 
-                    onClick={() => setSelectedDashboard(dashboards.PATIENTS)} 
-                    style={{...styles.link, ...(selectedDashboard === dashboards.PATIENTS && styles.selectedLink )}}>
-                    <LinkOverlay>
-                        <HStack>
-                            <Box style={ styles.icon }>
-                                <BsFillPersonLinesFill />
-                            </Box>
-                            <Text>{ dashboards.PATIENTS }</Text>
-                        </HStack>
-                    </LinkOverlay>
-                </LinkBox>
-                <LinkBox
-                    as={ RouterLink } 
-                    to="/dentists"
-                    onClick={() => setSelectedDashboard(dashboards.DENTISTS)} 
-                    style={{...styles.link, ...(selectedDashboard === dashboards.DENTISTS && styles.selectedLink )}}>
-                    <LinkOverlay>
-                        <HStack>
-                            <Box style={ styles.icon }>
-                                <BsPersonBadgeFill />
-                            </Box>
-                            <Text>{ dashboards.DENTISTS }</Text>
-                        </HStack>
-                    </LinkOverlay>
-                </LinkBox>
+                <SidebarLink 
+                    dashboard={ dashboards.DASHBOARD }
+                    icon={<BsGridFill />}
+                    url={"/"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
+                <SidebarLink 
+                    dashboard={ dashboards.APPOINTMENTS }
+                    icon={<BsFillCalendar2EventFill />}
+                    url={"/appointments"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
+                <SidebarLink 
+                    dashboard={ dashboards.PATIENTS }
+                    icon={<BsFillPersonLinesFill />}
+                    url={"/patients"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
+                <SidebarLink 
+                    dashboard={ dashboards.DENTISTS }
+                    icon={<BsPersonBadgeFill />}
+                    url={"/dentists"}
+                    selectedDashboard={selectedDashboard}
+                    setSelectedDashboard={setSelectedDashboard}
+                    styles={styles}
+                />
             </Stack>
             
         </Flex>
