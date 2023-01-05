@@ -19,7 +19,7 @@ function PatientSearchForm({ setPatients }) {
         if(queryParams.charAt(0) === '&')
             queryParams = queryParams.substring(1);
 
-        fetch(`http://localhost:3000/patients?${queryParams}`)
+        fetch(`http://localhost:8080/patients?${queryParams}`)
             .then(res => res.json())
             .then(patients => setPatients(patients));
     }
