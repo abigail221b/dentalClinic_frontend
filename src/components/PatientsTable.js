@@ -1,5 +1,5 @@
 import { Box, Table, TableContainer, Tbody, Th, Thead, Tr, Td } from "@chakra-ui/react";
-import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
+import { Skeleton } from '@chakra-ui/react'
 import ActionsGroup from "./ActionsGroup";
 
 function PatientsTable({ patients, loadingData }) {
