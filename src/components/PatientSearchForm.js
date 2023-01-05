@@ -9,6 +9,21 @@ function PatientSearchForm({ setPatients }) {
     const [dateOfBirth, setDateOfBirth] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
 
+    const handleSubmit = () => {
+        let firstNameParam = firstName === "" ? firstName : `firstName=${firstName}`;
+        let lastNameParam = lastName === "" ? lastName : `&lastName=${lastName}`;
+        let dateOfBirthParam = dateOfBirth === "" ? dateOfBirth : `&dateOfBirth=${dateOfBirth}`;
+        let phoneNumberParam = phoneNumber === "" ? phoneNumber : `&phoneNumber=${phoneNumber}`;
+        let queryParams = firstNameParam + lastNameParam + dateOfBirthParam + phoneNumberParam;
+
+        if(queryParams.charAt(0) === '&')
+            queryParams = queryParams.substring(1);
+
+        fetch(`http://localhost:3000/patients?${queryParams}`)
+            .then(res => res.json())
+            .then(patients => setPatients(patients));
+    }
+
     return (
         <Box>
             <Heading size="md">Search Patients</Heading>
@@ -48,7 +63,9 @@ function PatientSearchForm({ setPatients }) {
                     </FormControl>
                 </Flex>
             </Flex>
-            <Button width="100px">Search</Button>
+            <Button 
+                onClick={handleSubmit}
+                width="100px">Search</Button>
         </Box>
         
     );
