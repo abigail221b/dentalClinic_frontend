@@ -6,12 +6,13 @@ import PatientsTable from "../components/PatientsTable";
 function PatientsDashboard() {
 
     const [patients, setPatients] = useState([]);
+    const [loadingData, setLoadingData] = useState(false);
 
     return (
         <Flex flexDirection="column" width="100%" height="100vh">
             <Heading>Patients</Heading>
-            <PatientSearchForm setPatients={setPatients} />
-            <PatientsTable patients={patients} />
+            <PatientSearchForm setPatients={setPatients} setLoadingData={setLoadingData} />
+            <PatientsTable patients={patients} loadingData={loadingData} />
         </Flex>
     );
 }

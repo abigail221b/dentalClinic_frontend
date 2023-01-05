@@ -2,7 +2,7 @@ import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import { FormControl, FormLabel, Input } from '@chakra-ui/react'
 import { useState } from "react";
 
-function PatientSearchForm({ setPatients }) {
+function PatientSearchForm({ setPatients, setLoadingData }) {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -19,9 +19,14 @@ function PatientSearchForm({ setPatients }) {
         if(queryParams.charAt(0) === '&')
             queryParams = queryParams.substring(1);
 
+        setLoadingData(true);
+
         fetch(`http://localhost:8080/patients?${queryParams}`)
             .then(res => res.json())
-            .then(patients => setPatients(patients));
+            .then(patients => setPatients(patients))
+            .then(() => setLoadingData(false));
+
+        
     }
 
     return (
