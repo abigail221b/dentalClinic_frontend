@@ -1,7 +1,14 @@
 import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import { FormControl, FormLabel, Input } from '@chakra-ui/react'
+import { useState } from "react";
 
 function PatientSearchForm({ setPatients }) {
+
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [dateOfBirth, setDateOfBirth] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+
     return (
         <Box>
             <Heading size="md">Search Patients</Heading>
