@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Heading } from "@chakra-ui/react";
 import { FormControl, FormLabel, Input } from '@chakra-ui/react'
 
-function PatientSearchForm() {
+function PatientSearchForm({ setPatients }) {
     return (
         <Box>
             <Heading size="md">Search Patients</Heading>

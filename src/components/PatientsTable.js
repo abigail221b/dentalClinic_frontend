@@ -1,6 +1,6 @@
 import { Box, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 
-function PatientsTable() {
+function PatientsTable({ patients }) {
     return (
         <Box height="auto" overflowY="scroll">
             <TableContainer>

@@ -10,8 +10,8 @@ function PatientsDashboard() {
     return (
         <Flex flexDirection="column" width="100%" height="100vh">
             <Heading>Patients</Heading>
-            <PatientSearchForm />
-            <PatientsTable />
+            <PatientSearchForm setPatients={setPatients} />
+            <PatientsTable patients={patients} />
         </Flex>
     );
 }
