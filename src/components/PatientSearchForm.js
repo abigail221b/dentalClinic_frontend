@@ -7,12 +7,12 @@ function PatientSearchForm({ setPatients }) {
             <Heading size="md">Search Patients</Heading>
             <Flex flexDirection="column" gap="4">
                 <Flex>
-                    <FormControl isRequired="true">
+                    <FormControl>
                         <FormLabel>First Name</FormLabel>
                             <Input type='text' />
                     </FormControl>
 
-                    <FormControl isRequired="true">
+                    <FormControl>
                         <FormLabel>Last Name</FormLabel>
                             <Input type='text' />
                     </FormControl>
