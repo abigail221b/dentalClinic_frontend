@@ -16,23 +16,35 @@ function PatientSearchForm({ setPatients }) {
                 <Flex>
                     <FormControl>
                         <FormLabel>First Name</FormLabel>
-                            <Input type='text' />
+                            <Input 
+                                type='text'
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)} />
                     </FormControl>
 
                     <FormControl>
                         <FormLabel>Last Name</FormLabel>
-                            <Input type='text' />
+                            <Input 
+                                type='text'
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)} />
                     </FormControl>
                 </Flex>
                 <Flex>
                     <FormControl>
                         <FormLabel>Phone Number</FormLabel>
-                            <Input type='tel' />
+                            <Input 
+                                type='tel'
+                                value={phoneNumber}
+                                onChange={(e) => setPhoneNumber(e.target.value)} />
                     </FormControl>
 
                     <FormControl>
                         <FormLabel>Date of Birth</FormLabel>
-                            <Input type='date' />
+                            <Input 
+                                type='date'
+                                value={dateOfBirth}
+                                onChange={(e) => setDateOfBirth(e.target.value)} />
                     </FormControl>
                 </Flex>
             </Flex>
