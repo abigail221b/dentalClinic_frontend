@@ -1,10 +1,12 @@
 import { Box, Table, TableContainer, Tbody, Th, Thead, Tr, Td } from "@chakra-ui/react";
+import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 import ActionsGroup from "./ActionsGroup";
 
-function PatientsTable({ patients }) {
+function PatientsTable({ patients, loadingData }) {
+
     return (
-        <Box height="auto" overflowY="scroll">
-            <TableContainer>
+        <Box width="100%" height="auto" overflowY="scroll">
+            <TableContainer width="100%">
                 <Table>
                     <Thead>
                         <Tr>
@@ -17,19 +19,36 @@ function PatientsTable({ patients }) {
                             <Th>Actions</Th>
                         </Tr>
                     </Thead>
-                    <Tbody>
-                        {patients.map(patient => {
-                            return (
-                                <Tr>
-                                    <Td>{patient.firstName}</Td>
-                                    <Td>{patient.lastName}</Td>
-                                    <Td>{patient.sex}</Td>
-                                    <Td>{patient.dateOfBirth}</Td>
-                                    <Td>{patient.phoneNumber}</Td>
-                                    <Td>{patient.address}</Td>
-                                    <Td><ActionsGroup /></Td>
-                                </Tr>)})}
-                    </Tbody>
+                        {
+                            loadingData?
+                                <Tbody>
+                                    <Tr>
+                                        <Td><Skeleton height="30px" /></Td>
+                                        <Td><Skeleton height="30px" /></Td>
+                                        <Td><Skeleton height="30px" /></Td>
+                                        <Td><Skeleton height="30px" /></Td>
+                                        <Td><Skeleton height="30px" /></Td>
+                                        <Td><Skeleton height="30px" /></Td>
+                                        <Td><Skeleton height="30px" /></Td>
+                                    </Tr>
+                                </Tbody>
+                                :
+                                <Tbody>
+                                    {patients.map(patient => {
+                                        return (
+                                            <Tr>
+                                                <Td>{patient.firstName}</Td>
+                                                <Td>{patient.lastName}</Td>
+                                                <Td>{patient.sex}</Td>
+                                                <Td>{patient.dateOfBirth}</Td>
+                                                <Td>{patient.phoneNumber}</Td>
+                                                <Td>{patient.address}</Td>
+                                                <Td><ActionsGroup /></Td>
+                                            </Tr>)})}
+                                </Tbody>
+                        }
+                        
+                    
                 </Table>
             </TableContainer>
         </Box>
