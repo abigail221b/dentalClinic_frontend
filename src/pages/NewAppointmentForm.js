@@ -93,7 +93,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                         </Flex>
                     </ModalBody>
                     <ModalFooter>
-                        <Button>Submit</Button>
+                        <Button onClick={handleSubmit}>Submit</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
