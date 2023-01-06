@@ -4,8 +4,9 @@ import {
     FormLabel,
     Input,
     RadioGroup,
-    HStack,
-    Radio
+    Stack,
+    Radio,
+    Skeleton
 } from '@chakra-ui/react';
 import {
     NumberInput,
@@ -24,8 +25,18 @@ import {
     ModalCloseButton,
     Button,
 } from '@chakra-ui/react';
+import { useEffect, useState } from "react";
 
 function NewAppointmentForm({ isOpen, onClose, patient }) {
+
+    const [dentists, setDentists] = useState([]);
+    const [selectedDentist, setSelectedDentist] = useState(null);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/dentists")
+            .then(res => res.json())
+            .then(dentists => setDentists(dentists));
+    }, []);
 
     return (
         <>
@@ -38,14 +49,11 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                     </ModalHeader>
                     <ModalBody>
                         <FormControl>
-                            <FormLabel>Dentist</FormLabel>
-                            <RadioGroup defaultValue="Doctor 1">
-                                <HStack spacing="24px">
-                                <Radio value="Doctor 1">Doc 1</Radio>
-                                <Radio value="Doctor 2">Doc 2</Radio>
-                                <Radio value="Doctor 3">Doc 3</Radio>
-                                <Radio value="Doctor 4">Doc 4</Radio>
-                                </HStack>
+                            <FormLabel>Select a Dentist</FormLabel>
+                            <RadioGroup onChange={setSelectedDentist}>
+                                <Flex justifyContent="space-between" wrap="wrap" paddingBottom="20px">
+                                {dentists.map(dentist => <Radio value={`${dentist.id}`}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Radio>)}
+                                </Flex>
                             </RadioGroup>
                         </FormControl>
 
