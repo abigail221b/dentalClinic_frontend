@@ -72,17 +72,17 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                         <Flex gap="6">
                             <FormControl isInvalid={formError && date === null}>
                                 <FormLabel>Date</FormLabel>
-                                <Input type="date" />
+                                <Input type="date" onChange={(e) => setDate(e.target.value)}/>
                             </FormControl>
 
                             <FormControl isInvalid={formError && time === null}>
                                 <FormLabel>Time</FormLabel>
-                                <Input type="time" />
+                                <Input type="time" onChange={(e) => setTime(e.target.value)}/>
                             </FormControl>
 
                             <FormControl isInvalid={formError && duration === ""}>
                                 <FormLabel>Duration</FormLabel>
-                                <NumberInput defaultValue={45} min={15} max={120} step={15}>
+                                <NumberInput defaultValue={duration} min={15} max={120} step={15} onChange={setDuration}>
                                     <NumberInputField />
                                     <NumberInputStepper>
                                         <NumberIncrementStepper />
