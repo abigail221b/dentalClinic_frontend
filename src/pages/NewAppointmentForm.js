@@ -60,7 +60,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                         <ModalCloseButton />
                     </ModalHeader>
                     <ModalBody>
-                        <FormControl>
+                        <FormControl isInvalid={formError && selectedDentist === null}>
                             <FormLabel>Select a Dentist</FormLabel>
                             <RadioGroup onChange={setSelectedDentist}>
                                 <Flex justifyContent="space-between" wrap="wrap" paddingBottom="20px">
@@ -70,17 +70,17 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                         </FormControl>
 
                         <Flex gap="6">
-                            <FormControl>
+                            <FormControl isInvalid={formError && date === null}>
                                 <FormLabel>Date</FormLabel>
                                 <Input type="date" />
                             </FormControl>
 
-                            <FormControl>
+                            <FormControl isInvalid={formError && time === null}>
                                 <FormLabel>Time</FormLabel>
                                 <Input type="time" />
                             </FormControl>
 
-                            <FormControl>
+                            <FormControl isInvalid={formError && duration === ""}>
                                 <FormLabel>Duration</FormLabel>
                                 <NumberInput defaultValue={45} min={15} max={120} step={15}>
                                     <NumberInputField />
