@@ -31,6 +31,9 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
 
     const [dentists, setDentists] = useState([]);
     const [selectedDentist, setSelectedDentist] = useState(null);
+    const [date, setDate] = useState(null);
+    const [time, setTime] = useState(null);
+    const [duration, setDuration] = useState(45);
 
     useEffect(() => {
         fetch("http://localhost:8080/dentists")
