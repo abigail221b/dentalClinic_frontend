@@ -3,6 +3,7 @@ import { IoMdAdd } from "react-icons/io";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { Flex, Tooltip, IconButton } from "@chakra-ui/react";
 
+function ActionsGroup({ patient }) {
 function ActionsGroup() {
     return (
         <Flex gap="5">
