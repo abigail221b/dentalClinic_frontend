@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading } from "@chakra-ui/react";
-import { FormControl, FormLabel, Input } from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, FormHelperText } from '@chakra-ui/react'
 import { useState } from "react";
 
 function PatientSearchForm({ setPatients, setLoadingData }) {
@@ -8,8 +8,14 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
     const [lastName, setLastName] = useState("");
     const [dateOfBirth, setDateOfBirth] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [isEmptyForm, setIsEmptyForm] = useState(false);
 
     const handleSubmit = () => {
+        if(firstName === "" && lastName === "" && dateOfBirth === "" && phoneNumber === "") {
+            setIsEmptyForm(true);
+            return;
+        }
+
         let firstNameParam = firstName === "" ? firstName : `firstName=${firstName}`;
         let lastNameParam = lastName === "" ? lastName : `&lastName=${lastName}`;
         let dateOfBirthParam = dateOfBirth === "" ? dateOfBirth : `&dateOfBirth=${dateOfBirth}`;
@@ -34,40 +40,55 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
             <Heading size="md">Search Patients</Heading>
             <Flex flexDirection="column" gap="4">
                 <Flex>
-                    <FormControl>
+                    <FormControl isInvalid={isEmptyForm}>
                         <FormLabel>First Name</FormLabel>
                             <Input 
                                 type='text'
                                 value={firstName}
-                                onChange={(e) => setFirstName(e.target.value)} />
+                                onChange={(e) => {
+                                    setFirstName(e.target.value);
+                                    if(isEmptyForm) setIsEmptyForm(false);
+                                }} />
                     </FormControl>
 
-                    <FormControl>
+                    <FormControl isInvalid={isEmptyForm}>
                         <FormLabel>Last Name</FormLabel>
                             <Input 
                                 type='text'
                                 value={lastName}
-                                onChange={(e) => setLastName(e.target.value)} />
+                                onChange={(e) => {
+                                    setLastName(e.target.value);
+                                    if(isEmptyForm) setIsEmptyForm(false);
+                                }} />
                     </FormControl>
                 </Flex>
                 <Flex>
-                    <FormControl>
+                    <FormControl isInvalid={isEmptyForm}>
                         <FormLabel>Phone Number</FormLabel>
                             <Input 
                                 type='tel'
                                 value={phoneNumber}
-                                onChange={(e) => setPhoneNumber(e.target.value)} />
+                                onChange={(e) => {
+                                    setPhoneNumber(e.target.value);
+                                    if(isEmptyForm) setIsEmptyForm(false);
+                                }} />
                     </FormControl>
 
-                    <FormControl>
+                    <FormControl isInvalid={isEmptyForm}>
                         <FormLabel>Date of Birth</FormLabel>
                             <Input 
                                 type='date'
                                 value={dateOfBirth}
-                                onChange={(e) => setDateOfBirth(e.target.value)} />
+                                onChange={(e) => {
+                                    setDateOfBirth(e.target.value);
+                                    if(isEmptyForm) setIsEmptyForm(false);
+                                }} />
                     </FormControl>
                 </Flex>
             </Flex>
+
+            {isEmptyForm && <p>Please complete at least one field.</p>}
+
             <Button 
                 onClick={handleSubmit}
                 width="100px">Search</Button>
