@@ -8,11 +8,18 @@ import {
     RadioGroup,
     Radio
     } from '@chakra-ui/react';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function AppointmentSearchForm() {
 
     const [dateSearchBy, setDateSearchBy] = useState("date");
+    const [dentists, setDentists] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/dentists")
+        .then(res => res.json())
+        .then(dentists => setDentists(dentists));
+    }, []);
 
     return (
         <Card padding="25px" margin="10px 0">
@@ -38,11 +45,9 @@ function AppointmentSearchForm() {
                 </FormControl>
                 <FormControl>
                     <FormLabel>Dentist</FormLabel>
-                    <CheckboxGroup colorScheme='green' defaultValue={['dentist1']}>
+                    <CheckboxGroup colorScheme='green'>
                         <HStack>
-                            <Checkbox value='dentist1'>dentist1</Checkbox>
-                            <Checkbox value='dentist2'>dentist2</Checkbox>
-                            <Checkbox value='dentist3'>dentist3</Checkbox>
+                            {dentists.map(dentist => <Checkbox value={dentist.id}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Checkbox>)}
                         </HStack>
                     </CheckboxGroup>
                 </FormControl>
