@@ -6,7 +6,7 @@ function NewPatientForm() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [sex, setSex] = useState("");
-    const [dateOfBirth, setDateOfBirth] = useState(null);
+    const [dateOfBirth, setDateOfBirth] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
