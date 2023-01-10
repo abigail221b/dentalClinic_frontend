@@ -11,11 +11,13 @@ function DentistTable({ dentists }) {
                             <Th>First Name</Th>
                             <Th>Last Name</Th>
                             <Th>Phone Number</Th>
+                            <Th>Email</Th>
                             <Th>Actions</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
                         <Tr>
+                            <Td></Td>
                             <Td></Td>
                             <Td></Td>
                             <Td></Td>
