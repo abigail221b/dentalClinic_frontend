@@ -12,7 +12,19 @@ function NewDentistForm() {
     const handleSubmit = () => {
         if(firstName === "" || lastName === "" || phoneNumber === "" || email === "") {
             setFormError(true);
+            return;
         }
+
+        fetch("http://localhost:8080/dentists", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                phoneNumber: phoneNumber,
+                email: email
+            })
+        });
     }
 
     return (
