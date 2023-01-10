@@ -10,6 +10,7 @@ import AppointmentsDashboard from './pages/AppointmentsDashboard';
 import DentistsDashboard from "./pages/DentistsDashboard";
 import Dashboard from './pages/Dashboard';
 import NewPatientForm from './pages/NewPatientForm';
+import NewDentistForm from './pages/NewDentistForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +24,7 @@ root.render(
 						<Route path="patients/:id" element={<PatientDetail />} />
 						<Route path="patients/new" element={<NewPatientForm />} />
 						<Route path="dentists" element={<DentistsDashboard />} />
+						<Route path="dentists/new" element={<NewDentistForm />} />
 						<Route path="appointments" element={<AppointmentsDashboard />}/>
 					</Route>
 				</Routes>
