@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading } from "@chakra-ui/react";
+import { Box, Button, Card, Flex, Heading, Stack } from "@chakra-ui/react";
 import { FormControl, FormLabel, Input, FormHelperText } from '@chakra-ui/react'
 import { useState } from "react";
 
@@ -31,68 +31,68 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
             .then(res => res.json())
             .then(patients => setPatients(patients))
             .then(() => setLoadingData(false));
-
-        
     }
 
     return (
-        <Box>
-            <Heading size="md">Search Patients</Heading>
-            <Flex flexDirection="column" gap="4">
-                <Flex>
-                    <FormControl isInvalid={isEmptyForm}>
-                        <FormLabel>First Name</FormLabel>
-                            <Input 
-                                type='text'
-                                value={firstName}
-                                onChange={(e) => {
-                                    setFirstName(e.target.value);
-                                    if(isEmptyForm) setIsEmptyForm(false);
-                                }} />
-                    </FormControl>
+        <Card padding="25px" margin="15px 0">
+            <Stack gap="5px">
+                <Heading size="md">Search Patients</Heading>
+                <Flex flexDirection="column" gap="3">
+                    <Flex>
+                        <FormControl isInvalid={isEmptyForm}>
+                            <FormLabel>First Name</FormLabel>
+                                <Input 
+                                    type='text'
+                                    value={firstName}
+                                    onChange={(e) => {
+                                        setFirstName(e.target.value);
+                                        if(isEmptyForm) setIsEmptyForm(false);
+                                    }} />
+                        </FormControl>
 
-                    <FormControl isInvalid={isEmptyForm}>
-                        <FormLabel>Last Name</FormLabel>
-                            <Input 
-                                type='text'
-                                value={lastName}
-                                onChange={(e) => {
-                                    setLastName(e.target.value);
-                                    if(isEmptyForm) setIsEmptyForm(false);
-                                }} />
-                    </FormControl>
+                        <FormControl isInvalid={isEmptyForm}>
+                            <FormLabel>Last Name</FormLabel>
+                                <Input 
+                                    type='text'
+                                    value={lastName}
+                                    onChange={(e) => {
+                                        setLastName(e.target.value);
+                                        if(isEmptyForm) setIsEmptyForm(false);
+                                    }} />
+                        </FormControl>
+                    </Flex>
+                    <Flex>
+                        <FormControl isInvalid={isEmptyForm}>
+                            <FormLabel>Phone Number</FormLabel>
+                                <Input 
+                                    type='tel'
+                                    value={phoneNumber}
+                                    onChange={(e) => {
+                                        setPhoneNumber(e.target.value);
+                                        if(isEmptyForm) setIsEmptyForm(false);
+                                    }} />
+                        </FormControl>
+
+                        <FormControl isInvalid={isEmptyForm}>
+                            <FormLabel>Date of Birth</FormLabel>
+                                <Input 
+                                    type='date'
+                                    value={dateOfBirth}
+                                    onChange={(e) => {
+                                        setDateOfBirth(e.target.value);
+                                        if(isEmptyForm) setIsEmptyForm(false);
+                                    }} />
+                        </FormControl>
+                    </Flex>
                 </Flex>
-                <Flex>
-                    <FormControl isInvalid={isEmptyForm}>
-                        <FormLabel>Phone Number</FormLabel>
-                            <Input 
-                                type='tel'
-                                value={phoneNumber}
-                                onChange={(e) => {
-                                    setPhoneNumber(e.target.value);
-                                    if(isEmptyForm) setIsEmptyForm(false);
-                                }} />
-                    </FormControl>
 
-                    <FormControl isInvalid={isEmptyForm}>
-                        <FormLabel>Date of Birth</FormLabel>
-                            <Input 
-                                type='date'
-                                value={dateOfBirth}
-                                onChange={(e) => {
-                                    setDateOfBirth(e.target.value);
-                                    if(isEmptyForm) setIsEmptyForm(false);
-                                }} />
-                    </FormControl>
-                </Flex>
-            </Flex>
+                {isEmptyForm && <p>Please complete at least one field.</p>}
 
-            {isEmptyForm && <p>Please complete at least one field.</p>}
-
-            <Button 
-                onClick={handleSubmit}
-                width="100px">Search</Button>
-        </Box>
+                <Button 
+                    onClick={handleSubmit}
+                    width="100px">Search</Button>
+            </Stack>
+        </Card>
         
     );
 }
