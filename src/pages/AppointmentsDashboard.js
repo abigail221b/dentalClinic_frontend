@@ -6,7 +6,7 @@ import AppointmentsTable from "../components/AppointmentsTable";
 function AppontmentsDashboard() {
 
     return (
-        <Flex flexDirection="column" width="100%" height="100vh">
+        <Flex flexDirection="column" width="100%" height="100vh" padding="25px">
             <Heading>Appointments</Heading>
             <AppointmentSearchForm />
             <AppointmentsTable />

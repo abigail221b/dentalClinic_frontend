@@ -9,7 +9,7 @@ function PatientsDashboard() {
     const [loadingData, setLoadingData] = useState(false);
 
     return (
-        <Flex flexDirection="column" width="100%" height="100vh">
+        <Flex flexDirection="column" width="100%" height="100vh" padding="25px">
             <Heading>Patients</Heading>
             <PatientSearchForm setPatients={setPatients} setLoadingData={setLoadingData} />
             <PatientsTable patients={patients} loadingData={loadingData} />
