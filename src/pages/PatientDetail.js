@@ -2,10 +2,10 @@ import { Card, Flex, Heading, Text, Button, Box, ButtonGroup, Divider, Stack } f
 
 function PatientDetail() {
     return (
-        <Flex flexDirection="column" width="100%" height="100vh" padding="15px">
+        <Flex flexDirection="column" width="100%" height="100vh" padding="25px" gap="5">
             <Card borderRadius="15px" width="100%">
-                <Flex>
-                    <Flex flexDirection="column" alignItems="center" gap="3" padding="25px">
+                <Flex padding="25px">
+                    <Flex flexDirection="column" alignItems="center" gap="3" paddingRight="25px">
                         <Heading size="lg">Jane Doe</Heading>
                         <Stack alignItems="center">
                             <Text fontSize="lg" as="b">Last Appointment</Text>
@@ -18,7 +18,7 @@ function PatientDetail() {
                         </ButtonGroup>
                     </Flex>
                     <Divider orientation="vertical" />
-                    <Flex flexWrap="wrap" width="100%" justifyContent="space-between" alignItems="center" gap="10" padding="25px">
+                    <Flex flexWrap="wrap" width="100%" justifyContent="space-between" alignItems="center" gap="10" paddingLeft="25px">
                         <Box>
                             <Text fontSize="lg" as="b">Sex</Text>
                             <Text>F</Text>
@@ -38,13 +38,13 @@ function PatientDetail() {
                     </Flex>
                 </Flex>
             </Card>
-            <Card borderRadius="10px" width="100%">
+            <Card borderRadius="10px" width="100%" padding="25px">
                 <Heading size="md">Upcoming Appointments</Heading>
             </Card>
-            <Card borderRadius="10px" width="100%">
+            <Card borderRadius="10px" width="100%" padding="25px">
                 <Heading size="md">Latest Payments</Heading>
             </Card>
-            <Card borderRadius="10px" width="100%">
+            <Card borderRadius="10px" width="100%" padding="25px">
                 <Heading size="md">Insurance</Heading>
             </Card>
         </Flex>
