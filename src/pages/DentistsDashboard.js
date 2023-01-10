@@ -1,5 +1,6 @@
 import { Flex, Button, Heading } from "@chakra-ui/react";
 import DentistCard from "../components/DentistCard";
+import DentistTable from "../components/DentistTable";
 
 function DentistsDashboard() {
     return (
@@ -7,9 +8,7 @@ function DentistsDashboard() {
             <Heading>Dentists</Heading>
             <Button maxWidth="150px">New Dentist</Button>
             <Flex gap="10">
-                <DentistCard />
-                <DentistCard />
-                <DentistCard />
+                <DentistTable />
             </Flex>
         </Flex>
     );
