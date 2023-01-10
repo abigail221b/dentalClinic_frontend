@@ -17,17 +17,17 @@ function NewPatientForm() {
                 <HStack>
                     <FormControl>
                         <FormLabel>First Name</FormLabel>
-                        <Input type="text" />
+                        <Input type="text" value={firstName} onChange={e => setFirstName(e.target.value)} />
                     </FormControl>
                     <FormControl>
                         <FormLabel>Last Name</FormLabel>
-                        <Input type="text" />
+                        <Input type="text" value={lastName} onChange={e => setLastName(e.target.value)}  />
                     </FormControl>
                 </HStack>
                 <HStack>
                     <FormControl>
                         <FormLabel>Sex</FormLabel>
-                        <RadioGroup>
+                        <RadioGroup onChange={setSex}>
                             <HStack>
                                 <Radio value="M">M</Radio>
                                 <Radio value="F">F</Radio>
@@ -36,24 +36,24 @@ function NewPatientForm() {
                     </FormControl>
                     <FormControl>
                         <FormLabel>Date of Birth</FormLabel>
-                        <Input type="date" />
+                        <Input type="date" value={dateOfBirth} onChange={e => setDateOfBirth(e.target.value)} />
                     </FormControl>
                 </HStack>
                 <HStack>
                     <FormControl>
                         <FormLabel>Phone Number</FormLabel>
-                        <Input type="tel" />
+                        <Input type="tel" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
                     </FormControl>
                     <FormControl>
                         <FormLabel>Email</FormLabel>
-                        <Input type="email" />
+                        <Input type="email" value={email} onChange={e => setEmail(e.target.value)} />
                     </FormControl>
                 </HStack>
                 <FormControl>
                     <FormLabel>Address</FormLabel>
-                    <Input type="text" />
+                    <Input type="text" value={address} onChange={e => setAddress(e.target.value)} />
                 </FormControl>
-                <Button width="100px">Submit</Button>
+                <Button width="100px" onClick={handleSubmit}>Submit</Button>
         </Flex>
     );
 }
