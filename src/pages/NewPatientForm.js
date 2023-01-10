@@ -11,6 +11,22 @@ function NewPatientForm() {
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
 
+    const handleSubmit = () => {
+        fetch(`http://localhost:8080/patients`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                firstName: firstName,
+                lastName: lastName,
+                sex: sex,
+                dateOfBirth: dateOfBirth,
+                phoneNumber: phoneNumber,
+                email: email,
+                address: address
+            })
+        });
+    }
+
     return (
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" gap="3">
             <Heading>New Patient</Heading>
