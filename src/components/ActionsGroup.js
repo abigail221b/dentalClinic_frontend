@@ -4,9 +4,17 @@ import { RiDeleteBinFill } from "react-icons/ri";
 import { Flex, Tooltip, IconButton } from "@chakra-ui/react";
 import { useDisclosure } from '@chakra-ui/react'
 import NewAppointmentForm from "../pages/NewAppointmentForm";
+import { useNavigate } from "react-router-dom";
 
 function ActionsGroup({ patient }) {
+
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const navigate = useNavigate();
+
+    const navigateToPatientDetails = () => {
+        navigate(`/patients/${patient.id}`, { state: { patient: patient }});
+    }
+
     return (
         <Flex gap="5">
             <Tooltip label="Book Appointment">
@@ -15,7 +23,7 @@ function ActionsGroup({ patient }) {
             <NewAppointmentForm isOpen={isOpen} onClose={onClose} patient={patient}/>
 
             <Tooltip label="Patient Details">
-                <IconButton  size="md" icon={<BsPersonLinesFill />} />
+                <IconButton onClick={navigateToPatientDetails} size="md" icon={<BsPersonLinesFill />} />
             </Tooltip>
             
 
