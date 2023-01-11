@@ -16,13 +16,16 @@ function DentistTable({ dentists }) {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        <Tr>
-                            <Td></Td>
-                            <Td></Td>
-                            <Td></Td>
-                            <Td></Td>
-                            <Td><DentistActionsGroup /></Td>
-                        </Tr>
+                        {dentists.map(dentist => (
+                            <Tr>
+                                <Td>{dentist.firstName}</Td>
+                                <Td>{dentist.lastName}</Td>
+                                <Td>{dentist.phoneNumber}</Td>
+                                <Td>{dentist.email}</Td>
+                                <Td><DentistActionsGroup /></Td>
+                            </Tr>
+                        ))}
+                        
                     </Tbody>
                 </Table>
             </TableContainer>
