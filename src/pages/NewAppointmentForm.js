@@ -26,6 +26,7 @@ import {
     Button,
 } from '@chakra-ui/react';
 import { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 function NewAppointmentForm({ isOpen, onClose, patient }) {
 
@@ -35,6 +36,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
     const [time, setTime] = useState(null);
     const [duration, setDuration] = useState(45);
     const [formError, setFormError] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
 
     useEffect(() => {
         fetch("http://localhost:8080/dentists")
@@ -60,8 +62,15 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                 dentistId: selectedDentist,
                 duration: duration
             })
+        })
+        .then(res => {
+            if(res.status === 200)
+                setSubmitSuccess(true);
         });
     }
+
+    if(submitSuccess)
+        return <Navigate to={`/patients/${patient.id}`} />;
 
     return (
         <>
