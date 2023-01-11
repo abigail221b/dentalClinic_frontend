@@ -4,6 +4,14 @@ import { useState } from "react";
 function UpdatePatientForm({ patientData }) {
 
     const [patient, setPatient] = useState(patientData);
+
+    const handleSubmit = () => {
+        fetch("http://localhost:8080/patients", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(patient)
+        });
+    }
     
     return (
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" gap="3">
@@ -58,7 +66,7 @@ function UpdatePatientForm({ patientData }) {
                     <FormLabel>Address</FormLabel>
                     <Input type="text" value={patient.address} />
                 </FormControl>
-                <Button width="100px">Update</Button>
+                <Button width="100px" onClick={handleSubmit}>Update</Button>
         </Flex>
     );
 }
