@@ -87,7 +87,9 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
                         </HStack>
                         <FormControl>
                             <FormLabel>Address</FormLabel>
-                            <Input type="text" value={updatePatient.address} />
+                            <Input type="text" 
+                                   value={updatePatient.address} 
+                                   onChange={e => setUpdatePatient({...updatePatient, address: e.target.value})} />
                         </FormControl>
                     </ModalBody>
                     <ModalFooter>
