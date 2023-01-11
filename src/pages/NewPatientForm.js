@@ -1,5 +1,6 @@
 import { Heading, Flex, FormControl, FormLabel, Input, HStack, Button, RadioGroup, Radio } from "@chakra-ui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewPatientForm() {
 
@@ -11,6 +12,7 @@ function NewPatientForm() {
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
     const [formError, setFormError] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
 
@@ -32,7 +34,9 @@ function NewPatientForm() {
                 email: email,
                 address: address
             })
-        });
+        })
+        .then(res => res.json())
+        .then(patient => navigate(`/patients/${patient.id}`, { state: { patient: patient } }));
     }
 
     return (
