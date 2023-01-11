@@ -12,13 +12,13 @@ import {
 
 function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
 
-    const [patient, setPatient] = useState(patientData);
+    const [updatePatient, setUpdatePatient] = useState(patient);
 
     const handleSubmit = () => {
         fetch(`http://localhost:8080/patients/${patient.id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(patient)
+            body: JSON.stringify(updatePatient)
         })
         .then(res => res.status === 200 && onClose());
     }
@@ -37,21 +37,21 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
                             <FormControl>
                                 <FormLabel>First Name</FormLabel>
                                 <Input type="text" 
-                                    value={patient.firstName} 
-                                    onChange={e => setPatient({...patient, firstName: e.target.value})} />
+                                    value={updatePatient.firstName} 
+                                    onChange={e => setUpdatePatient({...updatePatient, firstName: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Last Name</FormLabel>
                                 <Input type="text" 
-                                    value={patient.lastName} 
-                                    onChange={e => setPatient({...patient, lastName: e.target.value})} />
+                                    value={updatePatient.lastName} 
+                                    onChange={e => setUpdatePatient({...updatePatient, lastName: e.target.value})} />
                             </FormControl>
                         </HStack>
                         <HStack>
                             <FormControl>
                                 <FormLabel>Sex</FormLabel>
-                                <RadioGroup value={patient.sex}
-                                            onChange={value => setPatient({...patient, sex: value})}>
+                                <RadioGroup value={updatePatient.sex}
+                                            onChange={value => setUpdatePatient({...updatePatient, sex: value})}>
                                     <HStack>
                                         <Radio value="M">M</Radio>
                                         <Radio value="F">F</Radio>
@@ -61,27 +61,27 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
                             <FormControl>
                                 <FormLabel>Date of Birth</FormLabel>
                                 <Input type="date" 
-                                    value={patient.dateOfBirth}
-                                    onChange={e => setPatient({...patient, dateOfBirth: e.target.value})} />
+                                    value={updatePatient.dateOfBirth}
+                                    onChange={e => setUpdatePatient({...updatePatient, dateOfBirth: e.target.value})} />
                             </FormControl>
                         </HStack>
                         <HStack>
                             <FormControl>
                                 <FormLabel>Phone Number</FormLabel>
                                 <Input type="tel" 
-                                    value={patient.phoneNumber} 
-                                    onChange={e => setPatient({...patient, phoneNumber: e.target.value})} />
+                                    value={updatePatient.phoneNumber} 
+                                    onChange={e => setUpdatePatient({...updatePatient, phoneNumber: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Email</FormLabel>
                                 <Input type="email" 
-                                    value={patient.email} 
-                                    onChange={e => setPatient({...patient, email: e.target.value})} />
+                                    value={updatePatient.email} 
+                                    onChange={e => setUpdatePatient({...updatePatient, email: e.target.value})} />
                             </FormControl>
                         </HStack>
                         <FormControl>
                             <FormLabel>Address</FormLabel>
-                            <Input type="text" value={patient.address} />
+                            <Input type="text" value={updatePatient.address} />
                         </FormControl>
                     </ModalBody>
                     <ModalFooter>
