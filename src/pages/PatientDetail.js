@@ -1,12 +1,13 @@
 import { Card, Flex, Heading, Text, Button, Box, ButtonGroup, Divider, Stack } from "@chakra-ui/react";
 import { Grid, GridItem } from '@chakra-ui/react'
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import PatientDetailButtonGroup from "../components/PatientDetailButtonGroup";
 
 function PatientDetail() {
 
     const location = useLocation();
-    const patient = location.state.patient;
+    const [patient, setPatient] = useState(location.state.patient);
 
     const calculateAge = (dateOfBirth) => {
         const dob = Date.parse(dateOfBirth);
