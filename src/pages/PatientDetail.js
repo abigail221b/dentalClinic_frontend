@@ -7,6 +7,14 @@ function PatientDetail() {
     const location = useLocation();
     const patient = location.state.patient;
 
+    const calculateAge = (dateOfBirth) => {
+        const dob = Date.parse(dateOfBirth);
+        const now = Date.now();
+        const diff = now - dob;
+        
+        return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+    }
+
     return (
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" gap="5">
             <Card borderRadius="15px" width="100%">
@@ -31,7 +39,7 @@ function PatientDetail() {
                         </GridItem>
                         <GridItem>
                             <Text fontSize="lg" as="b">Date of Birth</Text>
-                            <Text>{patient.dateOfBirth}</Text>
+                            <Text>{`${patient.dateOfBirth} (${calculateAge(patient.dateOfBirth)} yrs old)`}</Text>
                         </GridItem>
                         <GridItem>
                             <Text fontSize="lg" as="b">Phone Number</Text>
