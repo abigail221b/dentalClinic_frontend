@@ -20,7 +20,13 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatePatient)
         })
-        .then(res => res.status === 200 && onClose());
+        .then(res => {
+            if(res.status === 200) return res.json();
+        })
+        .then(patient => {
+            setPatient(patient);
+            onClose();
+        });
     }
     
     return (
