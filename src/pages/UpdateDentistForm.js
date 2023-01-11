@@ -10,7 +10,7 @@ import {
     ModalCloseButton,
 } from '@chakra-ui/react'
 
-function UpdateDentistForm({ dentist }) {
+function UpdateDentistForm({ isOpen, onClose, dentist }) {
     return (
         <>
             <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose} size="xl">
