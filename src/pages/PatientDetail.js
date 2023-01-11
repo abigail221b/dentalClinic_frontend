@@ -37,6 +37,10 @@ function PatientDetail() {
                             <Text>{patient.phoneNumber}</Text>
                         </Box>
                         <Box>
+                            <Text fontSize="lg" as="b">Email</Text>
+                            <Text>{patient.email}</Text>
+                        </Box>
+                        <Box>
                             <Text fontSize="lg" as="b">Address</Text>
                             <Text>{patient.address}</Text>
                         </Box>
