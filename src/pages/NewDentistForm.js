@@ -1,4 +1,4 @@
-import { Heading, Flex, FormControl, FormLabel, Input, HStack, Button, RadioGroup, Radio } from "@chakra-ui/react";
+import { Heading, Flex, FormControl, FormLabel, Input, HStack, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
 function NewDentistForm() {

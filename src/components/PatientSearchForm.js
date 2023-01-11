@@ -1,5 +1,5 @@
-import { Box, Button, Card, Flex, Heading, Stack } from "@chakra-ui/react";
-import { FormControl, FormLabel, Input, FormHelperText } from '@chakra-ui/react'
+import { Button, Card, Flex, Heading, Stack } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input } from '@chakra-ui/react'
 import { useState } from "react";
 
 function PatientSearchForm({ setPatients, setLoadingData }) {

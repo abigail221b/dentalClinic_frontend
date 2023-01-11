@@ -1,4 +1,4 @@
-import { Flex, Heading, Button, HStack, Text, Card, Stack } from "@chakra-ui/react";
+import { Heading, Button, HStack, Text, Card, Stack } from "@chakra-ui/react";
 import {
     FormControl,
     FormLabel,
