@@ -12,8 +12,8 @@ function PatientDetailButtonGroup({ patient }) {
             <Button onClick={onOpen}>Book Appointment</Button>
                 <NewAppointmentForm isOpen={isOpen} onClose={onClose} patient={patient} />
                 
-            <Button>Edit Patient</Button>
-                <UpdatePatientForm patientData={patient} />
+            <Button onClick={onOpen}>Edit Patient</Button>
+                <UpdatePatientForm isOpen={isOpen} onClose={onClose} patientData={patient} />
                 
             <Button>Delete Patient</Button>
         </ButtonGroup>

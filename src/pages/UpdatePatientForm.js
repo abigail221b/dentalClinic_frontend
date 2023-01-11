@@ -1,7 +1,7 @@
 import { Flex, FormControl, FormLabel, Input, HStack, RadioGroup, Radio, Heading, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
-function UpdatePatientForm({ patientData }) {
+function UpdatePatientForm({ isOpen, onClose, patientData }) {
 
     const [patient, setPatient] = useState(patientData);
 
