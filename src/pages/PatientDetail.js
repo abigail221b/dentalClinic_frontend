@@ -1,4 +1,5 @@
 import { Card, Flex, Heading, Text, Button, Box, ButtonGroup, Divider, Stack } from "@chakra-ui/react";
+import { Grid, GridItem } from '@chakra-ui/react'
 import { useLocation } from "react-router-dom";
 
 function PatientDetail() {
@@ -23,28 +24,29 @@ function PatientDetail() {
                         </ButtonGroup>
                     </Flex>
                     <Divider orientation="vertical" />
-                    <Flex flexWrap="wrap" width="100%" justifyContent="space-between" alignItems="center" gap="10" paddingLeft="25px">
-                        <Box>
+                    <Grid templateColumns="repeat(3, 1fr)" gap="6" width="100%" paddingLeft="25px">
+                        <GridItem>
                             <Text fontSize="lg" as="b">Sex</Text>
                             <Text>{patient.sex}</Text>
-                        </Box>
-                        <Box>
+                        </GridItem>
+                        <GridItem>
                             <Text fontSize="lg" as="b">Date of Birth</Text>
                             <Text>{patient.dateOfBirth}</Text>
-                        </Box>
-                        <Box>
+                        </GridItem>
+                        <GridItem>
                             <Text fontSize="lg" as="b">Phone Number</Text>
                             <Text>{patient.phoneNumber}</Text>
-                        </Box>
-                        <Box>
+                        </GridItem>
+                        <GridItem>
                             <Text fontSize="lg" as="b">Email</Text>
                             <Text>{patient.email}</Text>
-                        </Box>
-                        <Box>
+                        </GridItem>
+                        <GridItem>
                             <Text fontSize="lg" as="b">Address</Text>
                             <Text>{patient.address}</Text>
-                        </Box>
-                    </Flex>
+                        </GridItem>
+                    </Grid>
+
                 </Flex>
             </Card>
             <Card borderRadius="10px" width="100%" padding="25px">
