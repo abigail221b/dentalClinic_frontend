@@ -5,12 +5,13 @@ import UpdatePatientForm from "../pages/UpdatePatientForm";
 
 function PatientDetailButtonGroup({ patient, setPatient }) {
 
+    const { isOpen: newApptFormIsOpen, onOpen: newApptFormOnOpen, onClose: newApptFormOnClose } = useDisclosure();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
         <ButtonGroup>
-            <Button onClick={onOpen}>Book Appointment</Button>
-                <NewAppointmentForm isOpen={isOpen} onClose={onClose} patient={patient} />
+            <Button onClick={newApptFormOnOpen}>Book Appointment</Button>
+                <NewAppointmentForm isOpen={newApptFormIsOpen} onClose={newApptFormOnClose} patient={patient} />
                 
             <Button onClick={onOpen}>Edit Patient</Button>
                 <UpdatePatientForm isOpen={isOpen} onClose={onClose} patient={patient} setPatient={setPatient} />
