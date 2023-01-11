@@ -19,7 +19,8 @@ function UpdatePatientForm({ isOpen, onClose, patientData }) {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(patient)
-        });
+        })
+        .then(res => res.status === 200 && onClose());
     }
     
     return (
@@ -36,20 +37,12 @@ function UpdatePatientForm({ isOpen, onClose, patientData }) {
                             <FormControl>
                                 <FormLabel>First Name</FormLabel>
                                 <Input type="text" 
-                        <Input type="text" 
-                                <Input type="text" 
-                                    value={patient.firstName} 
-                               value={patient.firstName} 
                                     value={patient.firstName} 
                                     onChange={e => setPatient({...patient, firstName: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Last Name</FormLabel>
                                 <Input type="text" 
-                        <Input type="text" 
-                                <Input type="text" 
-                                    value={patient.lastName} 
-                               value={patient.lastName} 
                                     value={patient.lastName} 
                                     onChange={e => setPatient({...patient, lastName: e.target.value})} />
                             </FormControl>
@@ -68,8 +61,6 @@ function UpdatePatientForm({ isOpen, onClose, patientData }) {
                             <FormControl>
                                 <FormLabel>Date of Birth</FormLabel>
                                 <Input type="date" 
-                        <Input type="date" 
-                                <Input type="date" 
                                     value={patient.dateOfBirth}
                                     onChange={e => setPatient({...patient, dateOfBirth: e.target.value})} />
                             </FormControl>
@@ -78,20 +69,12 @@ function UpdatePatientForm({ isOpen, onClose, patientData }) {
                             <FormControl>
                                 <FormLabel>Phone Number</FormLabel>
                                 <Input type="tel" 
-                        <Input type="tel" 
-                                <Input type="tel" 
-                                    value={patient.phoneNumber} 
-                               value={patient.phoneNumber} 
                                     value={patient.phoneNumber} 
                                     onChange={e => setPatient({...patient, phoneNumber: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Email</FormLabel>
                                 <Input type="email" 
-                        <Input type="email" 
-                                <Input type="email" 
-                                    value={patient.email} 
-                               value={patient.email} 
                                     value={patient.email} 
                                     onChange={e => setPatient({...patient, email: e.target.value})} />
                             </FormControl>
