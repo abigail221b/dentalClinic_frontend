@@ -27,7 +27,7 @@ function PatientDetail() {
                         </Stack>
                         <ButtonGroup>
                             <Button>Book Appointment</Button>
-                            <Button>Edit Info</Button>
+                            <Button>Edit Patient</Button>
                             <Button>Delete Patient</Button>
                         </ButtonGroup>
                     </Flex>
