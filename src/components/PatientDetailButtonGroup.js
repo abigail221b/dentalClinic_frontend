@@ -1,11 +1,16 @@
 import { ButtonGroup, Button } from "@chakra-ui/react";
+import { useDisclosure } from '@chakra-ui/react';
+import NewAppointmentForm from "../pages/NewAppointmentForm";
+
 function PatientDetailButtonGroup({ patient }) {
 
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
-function PatientDetailButtonGroup() {
     return (
         <ButtonGroup>
-            <Button>Book Appointment</Button>
+            <Button onClick={onOpen}>Book Appointment</Button>
+                <NewAppointmentForm isOpen={isOpen} onClose={onClose} patient={patient} />
+                
             <Button>Edit Patient</Button>
             <Button>Delete Patient</Button>
         </ButtonGroup>
