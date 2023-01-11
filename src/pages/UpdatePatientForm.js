@@ -10,7 +10,7 @@ import {
     ModalCloseButton,
 } from '@chakra-ui/react'
 
-function UpdatePatientForm({ isOpen, onClose, patientData }) {
+function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
 
     const [patient, setPatient] = useState(patientData);
 
