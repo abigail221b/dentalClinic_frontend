@@ -70,7 +70,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
     }
 
     if(submitSuccess)
-        return <Navigate to={`/patients/${patient.id}`} />;
+        return <Navigate to={`/patients/${patient.id}`} state={{patient: patient}} />;
 
     return (
         <>
