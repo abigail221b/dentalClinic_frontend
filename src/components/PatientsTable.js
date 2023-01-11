@@ -44,6 +44,7 @@ function PatientsTable({ patients, loadingData }) {
                                                 <Td>{patient.sex}</Td>
                                                 <Td>{patient.dateOfBirth}</Td>
                                                 <Td>{patient.phoneNumber}</Td>
+                                                <Td>{patient.email}</Td>
                                                 <Td>{patient.address}</Td>
                                                 <Td><ActionsGroup patient={patient} /></Td>
                                             </Tr>)})}
