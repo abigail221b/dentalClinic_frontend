@@ -38,7 +38,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
             <Stack gap="2">
                 <Heading size="md">Search Patients</Heading>
                 <Flex flexDirection="column" gap="3">
-                    <Flex>
+                    <Flex gap="5">
                         <FormControl isInvalid={isEmptyForm}>
                             <FormLabel>First Name</FormLabel>
                                 <Input 
@@ -61,7 +61,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                                     }} />
                         </FormControl>
                     </Flex>
-                    <Flex>
+                    <Flex gap="5">
                         <FormControl isInvalid={isEmptyForm}>
                             <FormLabel>Phone Number</FormLabel>
                                 <Input 
