@@ -15,6 +15,7 @@ function PatientsTable({ patients, loadingData }) {
                             <Th>Sex</Th>
                             <Th>Date of Birth</Th>
                             <Th>Phone Number</Th>
+                            <Th>Email</Th>
                             <Th>Address</Th>
                             <Th>Actions</Th>
                         </Tr>
@@ -23,6 +24,7 @@ function PatientsTable({ patients, loadingData }) {
                             loadingData?
                                 <Tbody>
                                     <Tr>
+                                        <Td><Skeleton height="30px" /></Td>
                                         <Td><Skeleton height="30px" /></Td>
                                         <Td><Skeleton height="30px" /></Td>
                                         <Td><Skeleton height="30px" /></Td>
