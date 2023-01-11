@@ -1,6 +1,7 @@
 import { Card, Flex, Heading, Text, Button, Box, ButtonGroup, Divider, Stack } from "@chakra-ui/react";
 import { Grid, GridItem } from '@chakra-ui/react'
 import { useLocation } from "react-router-dom";
+import PatientDetailButtonGroup from "../components/PatientDetailButtonGroup";
 
 function PatientDetail() {
 
@@ -25,11 +26,7 @@ function PatientDetail() {
                             <Text fontSize="lg" as="b">Last Appointment</Text>
                             <Text>2022-09-10 (4 months ago)</Text>
                         </Stack>
-                        <ButtonGroup>
-                            <Button>Book Appointment</Button>
-                            <Button>Edit Patient</Button>
-                            <Button>Delete Patient</Button>
-                        </ButtonGroup>
+                        <PatientDetailButtonGroup />
                     </Flex>
                     <Divider orientation="vertical" />
                     <Grid templateColumns="repeat(3, 1fr)" gap="6" width="100%" paddingLeft="25px">
