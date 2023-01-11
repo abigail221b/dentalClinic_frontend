@@ -26,7 +26,7 @@ function PatientDetail() {
                             <Text fontSize="lg" as="b">Last Appointment</Text>
                             <Text>2022-09-10 (4 months ago)</Text>
                         </Stack>
-                        <PatientDetailButtonGroup />
+                        <PatientDetailButtonGroup patient={patient}/>
                     </Flex>
                     <Divider orientation="vertical" />
                     <Grid templateColumns="repeat(3, 1fr)" gap="6" width="100%" paddingLeft="25px">

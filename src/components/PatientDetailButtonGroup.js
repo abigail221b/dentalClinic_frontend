@@ -1,4 +1,6 @@
 import { ButtonGroup, Button } from "@chakra-ui/react";
+function PatientDetailButtonGroup({ patient }) {
+
 
 function PatientDetailButtonGroup() {
     return (
