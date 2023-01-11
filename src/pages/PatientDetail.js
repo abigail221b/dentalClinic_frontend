@@ -1,6 +1,11 @@
 import { Card, Flex, Heading, Text, Button, Box, ButtonGroup, Divider, Stack } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
 
 function PatientDetail() {
+
+    const location = useLocation();
+    const patient = location.state.patient;
+
     return (
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" gap="5">
             <Card borderRadius="15px" width="100%">
