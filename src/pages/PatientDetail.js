@@ -11,7 +11,7 @@ function PatientDetail() {
             <Card borderRadius="15px" width="100%">
                 <Flex padding="25px">
                     <Flex flexDirection="column" alignItems="center" gap="3" paddingRight="25px">
-                        <Heading size="lg">Jane Doe</Heading>
+                        <Heading size="lg">{`${patient.firstName} ${patient.lastName}`}</Heading>
                         <Stack alignItems="center">
                             <Text fontSize="lg" as="b">Last Appointment</Text>
                             <Text>2022-09-10 (4 months ago)</Text>
@@ -26,19 +26,19 @@ function PatientDetail() {
                     <Flex flexWrap="wrap" width="100%" justifyContent="space-between" alignItems="center" gap="10" paddingLeft="25px">
                         <Box>
                             <Text fontSize="lg" as="b">Sex</Text>
-                            <Text>F</Text>
+                            <Text>{patient.sex}</Text>
                         </Box>
                         <Box>
                             <Text fontSize="lg" as="b">Date of Birth</Text>
-                            <Text>1996-01-01 (27 yrs)</Text>
+                            <Text>{patient.dateOfBirth}</Text>
                         </Box>
                         <Box>
                             <Text fontSize="lg" as="b">Phone Number</Text>
-                            <Text>(123)-546-7890</Text>
+                            <Text>{patient.phoneNumber}</Text>
                         </Box>
                         <Box>
                             <Text fontSize="lg" as="b">Address</Text>
-                            <Text>221b Baker St. London</Text>
+                            <Text>{patient.address}</Text>
                         </Box>
                     </Flex>
                 </Flex>
