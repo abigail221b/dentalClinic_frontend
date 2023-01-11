@@ -76,7 +76,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                         <FormControl isInvalid={formError && selectedDentist === null}>
                             <FormLabel>Select a Dentist</FormLabel>
                             <RadioGroup onChange={setSelectedDentist}>
-                                <Flex justifyContent="space-between" wrap="wrap" paddingBottom="20px">
+                                <Flex gap="5" wrap="wrap" paddingBottom="20px">
                                 {dentists.map(dentist => <Radio value={`${dentist.id}`}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Radio>)}
                                 </Flex>
                             </RadioGroup>
