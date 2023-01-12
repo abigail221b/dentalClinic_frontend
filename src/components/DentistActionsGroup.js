@@ -3,7 +3,7 @@ import { RiDeleteBinFill } from "react-icons/ri";
 import { Flex, Tooltip, IconButton, useDisclosure } from "@chakra-ui/react";
 import UpdateDentistForm from "../pages/UpdateDentistForm";
 
-function DentistActionsGroup({ dentist }) {
+function DentistActionsGroup({ dentist, setDentist }) {
 
     const {isOpen, onOpen, onClose} = useDisclosure();
 
@@ -12,7 +12,7 @@ function DentistActionsGroup({ dentist }) {
             <Tooltip label="Dentist Details">
                 <IconButton onClick={onOpen} size="md" icon={<BsPersonLinesFill />} />
             </Tooltip>
-            <UpdateDentistForm isOpen={isOpen} onClose={onClose} dentist={dentist} />
+            <UpdateDentistForm isOpen={isOpen} onClose={onClose} dentist={dentist} setDentist={setDentist} />
             
             <Tooltip label="Delete Dentist">
                 <IconButton size="md" icon={<RiDeleteBinFill />} />
