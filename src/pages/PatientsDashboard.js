@@ -20,7 +20,7 @@ function PatientsDashboard() {
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" backgroundColor="#F9F9F9">
             <Flex justifyContent="space-between">
                 <Heading>Patients</Heading>
-                <Button as={ RouterLink } to="/patients/new">New Patient</Button>
+                <Button as={ RouterLink } to="/patients/new" colorScheme="teal">New Patient</Button>
             </Flex>
             <PatientSearchForm
                 setPatients={setPatients}

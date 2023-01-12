@@ -41,7 +41,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                     <Flex gap="5">
                         <FormControl isInvalid={isEmptyForm}>
                             <FormLabel>First Name</FormLabel>
-                                <Input 
+                                <Input
                                     type='text'
                                     value={firstName}
                                     onChange={(e) => {
@@ -52,7 +52,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
 
                         <FormControl isInvalid={isEmptyForm}>
                             <FormLabel>Last Name</FormLabel>
-                                <Input 
+                                <Input
                                     type='text'
                                     value={lastName}
                                     onChange={(e) => {
@@ -61,11 +61,11 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                                     }} />
                         </FormControl>
                     </Flex>
-                    
+
                     <Flex gap="5">
                         <FormControl isInvalid={isEmptyForm}>
                             <FormLabel>Phone Number</FormLabel>
-                                <Input 
+                                <Input
                                     type='tel'
                                     value={phoneNumber}
                                     onChange={(e) => {
@@ -76,7 +76,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
 
                         <FormControl isInvalid={isEmptyForm}>
                             <FormLabel>Date of Birth</FormLabel>
-                                <Input 
+                                <Input
                                     type='date'
                                     value={dateOfBirth}
                                     onChange={(e) => {
@@ -89,12 +89,13 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
 
                 {isEmptyForm && <p>Please complete at least one field.</p>}
 
-                <Button 
+                <Button
                     onClick={handleSubmit}
-                    width="100px">Search</Button>
+                    width="100px"
+                    colorScheme="teal">Search</Button>
             </Stack>
         </Card>
-        
+
     );
 }
 
