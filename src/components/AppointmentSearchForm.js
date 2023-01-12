@@ -14,7 +14,7 @@ function AppointmentSearchForm() {
     }, []);
 
     return (
-        <Card padding="25px" margin="10px 0">
+        <Card padding="25px" margin="10px 0" backgroundColor="white">
             <Stack gap="2">
                 <Heading size="md">Search Appointments</Heading>
                 <FormControl as="fieldset">
