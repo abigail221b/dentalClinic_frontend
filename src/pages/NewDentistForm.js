@@ -1,5 +1,6 @@
 import { Heading, Flex, FormControl, FormLabel, Input, HStack, Button } from "@chakra-ui/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function NewDentistForm() {
 
@@ -8,6 +9,7 @@ function NewDentistForm() {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [formError, setFormError] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
         if(firstName === "" || lastName === "" || phoneNumber === "" || email === "") {
@@ -24,7 +26,11 @@ function NewDentistForm() {
                 phoneNumber: phoneNumber,
                 email: email
             })
-        });
+        })
+        .then(res => {
+            if(res.status === 200) 
+                navigate("/dentists");
+        })
     }
 
     return (
