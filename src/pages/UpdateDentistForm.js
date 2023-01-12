@@ -14,6 +14,19 @@ function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: s
 
     const [dentist, setDentist] = useState(dentistRow);
 
+    const handleSubmit = () => {
+        fetch(`http://localhost:8080/dentists/${dentist.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dentist)
+        })
+        .then(res => res.json())
+        .then(dentist => {
+            setDentistRow(dentist);
+            onClose();
+        });
+    }
+
     return (
         <>
             <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose} size="xl">
@@ -54,7 +67,7 @@ function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: s
                         </HStack>
                     </ModalBody>
                     <ModalFooter>
-                        <Button width="100px">Update</Button>
+                        <Button onClick={handleSubmit} width="100px">Update</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
