@@ -1,5 +1,5 @@
-import { Box, Table, TableContainer, Tbody, Th, Thead, Tr, Td } from "@chakra-ui/react";
-import DentistActionsGroup from "./DentistActionsGroup";
+import { Box, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
+import DentistRow from "./DentistRow";
 
 function DentistTable({ dentists }) {
     return (
@@ -15,18 +15,7 @@ function DentistTable({ dentists }) {
                             <Th>Actions</Th>
                         </Tr>
                     </Thead>
-                    <Tbody>
-                        {dentists.map(dentist => (
-                            <Tr>
-                                <Td>{dentist.firstName}</Td>
-                                <Td>{dentist.lastName}</Td>
-                                <Td>{dentist.phoneNumber}</Td>
-                                <Td>{dentist.email}</Td>
-                                <Td><DentistActionsGroup dentist={dentist}/></Td>
-                            </Tr>
-                        ))}
-                        
-                    </Tbody>
+                    <Tbody>{dentists.map(dentist => <DentistRow dentist={dentist} />)}</Tbody>
                 </Table>
             </TableContainer>
         </Box>
