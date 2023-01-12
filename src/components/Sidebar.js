@@ -10,7 +10,7 @@ function Sidebar() {
 
     return (
         <Flex style={styles.sidebar}>
-            <Stack gap="7">
+            <Stack>
                 <SidebarLink
                     dashboard={dashboards.DASHBOARD}
                     icon={<BsGridFill />}
@@ -55,22 +55,23 @@ const styles = {
         height: "100vh",
         flexDirection: "column",
         justifyContent: "center",
-        backgroundColor: "#f2f5f5",
-        color: "#434242"
+        backgroundColor: "#2f4050",
+        color: "#F7F6E7"
     },
     icon: {
         position: "relative",
         top: "-2px"
     },
     link: {
-        padding: "15px",
+        padding: "25px 15px",
         gap: "7px",
         fontSize: "large",
         fontWeight: "bold"
     },
     selectedLink: {
-        color: "#0abab5",
-        borderRight: "10px solid #0abab5"
+        color: "#319795",
+        backgroundColor: "white",
+        borderRight: "10px solid #319795"
     }
 };
 
