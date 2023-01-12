@@ -1,5 +1,4 @@
-import { BsPersonLinesFill } from "react-icons/bs";
-import { RiDeleteBinFill } from "react-icons/ri";
+import { RiEdit2Fill, RiDeleteBinFill } from "react-icons/ri";
 import { Flex, Tooltip, IconButton, useDisclosure } from "@chakra-ui/react";
 import UpdateDentistForm from "../pages/UpdateDentistForm";
 
@@ -9,8 +8,8 @@ function DentistActionsGroup({ dentist, setDentist }) {
 
     return (
         <Flex gap="5">
-            <Tooltip label="Dentist Details">
-                <IconButton onClick={onOpen} size="md" icon={<BsPersonLinesFill />} />
+            <Tooltip label="Update Dentist">
+                <IconButton onClick={onOpen} size="md" icon={<RiEdit2Fill />} />
             </Tooltip>
             <UpdateDentistForm isOpen={isOpen} onClose={onClose} dentist={dentist} setDentist={setDentist} />
             
