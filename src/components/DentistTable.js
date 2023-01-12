@@ -4,7 +4,7 @@ import { Box, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/rea
 
 function DentistTable({ dentists }) {
     return (
-        <Box width="100%" height="auto" overflowY="scroll">
+        <Box width="100%" height="auto" overflowY="scroll" backgroundColor="white">
             <TableContainer width="100%">
                 <Table>
                     <Thead>
