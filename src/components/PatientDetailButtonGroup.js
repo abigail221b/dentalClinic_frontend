@@ -29,7 +29,7 @@ function PatientDetailButtonGroup({ patient, setPatient }) {
                     patient={patient}
                     setPatient={setPatient} />
 
-            <Button colorScheme="teal">Delete Patient</Button>
+            <Button colorScheme="red">Delete Patient</Button>
         </ButtonGroup>
     );
 }

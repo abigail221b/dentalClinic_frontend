@@ -19,7 +19,7 @@ function DentistActionsGroup({ dentist, setDentist }) {
             <UpdateDentistForm isOpen={isOpen} onClose={onClose} dentist={dentist} setDentist={setDentist} />
 
             <Tooltip label="Delete Dentist">
-                <IconButton onClick={handleDelete} size="md" icon={<RiDeleteBinFill />} />
+                <IconButton onClick={handleDelete} size="md" colorScheme="red" icon={<RiDeleteBinFill />} />
             </Tooltip>
         </Flex>
     );

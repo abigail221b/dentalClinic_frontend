@@ -32,7 +32,7 @@ function ActionsGroup({ patient }) {
             </Tooltip>
 
             <Tooltip label="Delete patient">
-                <IconButton size="md" icon={<RiDeleteBinFill />} />
+                <IconButton size="md" colorScheme="red" icon={<RiDeleteBinFill />} />
             </Tooltip>
         </Flex>
     );
