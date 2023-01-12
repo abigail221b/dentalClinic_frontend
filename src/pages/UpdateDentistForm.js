@@ -43,7 +43,7 @@ function UpdateDentistForm({ isOpen, onClose, dentist }) {
                         </HStack>
                     </ModalBody>
                     <ModalFooter>
-                        <Button width="100px">Submit</Button>
+                        <Button width="100px">Update</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
