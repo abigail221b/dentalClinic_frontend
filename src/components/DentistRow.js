@@ -12,7 +12,7 @@ function DentistRow({ dentist: dentistData }) {
             <Td>{dentist.lastName}</Td>
             <Td>{dentist.phoneNumber}</Td>
             <Td>{dentist.email}</Td>
-            <Td><DentistActionsGroup dentist={dentist} setDentist={dentist} /></Td>
+            <Td><DentistActionsGroup dentist={dentist} setDentist={setDentist} /></Td>
         </Tr>
     );
 }
