@@ -6,6 +6,10 @@ function DentistActionsGroup({ dentist, setDentist }) {
 
     const {isOpen, onOpen, onClose} = useDisclosure();
 
+    const handleDelete = () => {
+        fetch(`http://localhost:8080/dentists/${dentist.id}`, { method: "DELETE" });
+    }
+
     return (
         <Flex gap="5">
             <Tooltip label="Update Dentist">
@@ -14,7 +18,7 @@ function DentistActionsGroup({ dentist, setDentist }) {
             <UpdateDentistForm isOpen={isOpen} onClose={onClose} dentist={dentist} setDentist={setDentist} />
             
             <Tooltip label="Delete Dentist">
-                <IconButton size="md" icon={<RiDeleteBinFill />} />
+                <IconButton onClick={handleDelete} size="md" icon={<RiDeleteBinFill />} />
             </Tooltip>
         </Flex>
     );
