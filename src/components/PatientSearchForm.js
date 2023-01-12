@@ -61,6 +61,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                                     }} />
                         </FormControl>
                     </Flex>
+                    
                     <Flex gap="5">
                         <FormControl isInvalid={isEmptyForm}>
                             <FormLabel>Phone Number</FormLabel>

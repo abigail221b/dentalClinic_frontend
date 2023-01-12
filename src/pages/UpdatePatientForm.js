@@ -1,14 +1,6 @@
-import { Flex, FormControl, FormLabel, Input, HStack, RadioGroup, Radio, Heading, Button } from "@chakra-ui/react";
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, } from '@chakra-ui/react'
+import { FormControl, FormLabel, Input, HStack, RadioGroup, Radio, Heading, Button } from "@chakra-ui/react";
 import { useState } from "react";
-import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-} from '@chakra-ui/react'
 
 function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
 
@@ -28,7 +20,7 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
             onClose();
         });
     }
-    
+
     return (
         <>
             <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose} size="xl">
@@ -42,14 +34,14 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
                         <HStack>
                             <FormControl>
                                 <FormLabel>First Name</FormLabel>
-                                <Input type="text" 
-                                    value={updatePatient.firstName} 
+                                <Input type="text"
+                                    value={updatePatient.firstName}
                                     onChange={e => setUpdatePatient({...updatePatient, firstName: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Last Name</FormLabel>
-                                <Input type="text" 
-                                    value={updatePatient.lastName} 
+                                <Input type="text"
+                                    value={updatePatient.lastName}
                                     onChange={e => setUpdatePatient({...updatePatient, lastName: e.target.value})} />
                             </FormControl>
                         </HStack>
@@ -66,7 +58,7 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Date of Birth</FormLabel>
-                                <Input type="date" 
+                                <Input type="date"
                                     value={updatePatient.dateOfBirth}
                                     onChange={e => setUpdatePatient({...updatePatient, dateOfBirth: e.target.value})} />
                             </FormControl>
@@ -74,21 +66,21 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
                         <HStack>
                             <FormControl>
                                 <FormLabel>Phone Number</FormLabel>
-                                <Input type="tel" 
-                                    value={updatePatient.phoneNumber} 
+                                <Input type="tel"
+                                    value={updatePatient.phoneNumber}
                                     onChange={e => setUpdatePatient({...updatePatient, phoneNumber: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Email</FormLabel>
-                                <Input type="email" 
-                                    value={updatePatient.email} 
+                                <Input type="email"
+                                    value={updatePatient.email}
                                     onChange={e => setUpdatePatient({...updatePatient, email: e.target.value})} />
                             </FormControl>
                         </HStack>
                         <FormControl>
                             <FormLabel>Address</FormLabel>
-                            <Input type="text" 
-                                   value={updatePatient.address} 
+                            <Input type="text"
+                                   value={updatePatient.address}
                                    onChange={e => setUpdatePatient({...updatePatient, address: e.target.value})} />
                         </FormControl>
                     </ModalBody>

@@ -1,12 +1,4 @@
-import {
-    Table,
-    Thead,
-    Tbody,
-    Tr,
-    Th,
-    Td,
-    TableContainer,
-} from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, TableContainer } from '@chakra-ui/react';
 
 function AppointmentsTable() {
     return (
@@ -24,7 +16,7 @@ function AppointmentsTable() {
                         </Tr>
                     </Thead>
                     <Tbody>
-                        
+
                     </Tbody>
                 </Table>
             </TableContainer>

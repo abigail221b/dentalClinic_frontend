@@ -1,7 +1,8 @@
-import { Flex, Heading, Button } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import PatientSearchForm from "../components/PatientSearchForm";
 import PatientsTable from "../components/PatientsTable";
+
+import { Flex, Heading, Button } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
 function PatientsDashboard() {
@@ -21,8 +22,12 @@ function PatientsDashboard() {
                 <Heading>Patients</Heading>
                 <Button as={ RouterLink } to="/patients/new">New Patient</Button>
             </Flex>
-            <PatientSearchForm setPatients={setPatients} setLoadingData={setLoadingData} />
-            <PatientsTable patients={patients} loadingData={loadingData} />
+            <PatientSearchForm
+                setPatients={setPatients}
+                setLoadingData={setLoadingData} />
+            <PatientsTable
+                patients={patients}
+                loadingData={loadingData} />
         </Flex>
     );
 }

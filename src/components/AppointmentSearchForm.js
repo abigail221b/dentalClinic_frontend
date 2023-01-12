@@ -1,13 +1,5 @@
+import { FormControl, FormLabel, Input, Checkbox, CheckboxGroup, RadioGroup, Radio } from '@chakra-ui/react';
 import { Heading, Button, HStack, Text, Card, Stack } from "@chakra-ui/react";
-import {
-    FormControl,
-    FormLabel,
-    Input,
-    Checkbox,
-    CheckboxGroup,
-    RadioGroup,
-    Radio
-    } from '@chakra-ui/react';
 import { useEffect, useState } from "react";
 
 function AppointmentSearchForm() {
@@ -47,7 +39,10 @@ function AppointmentSearchForm() {
                     <FormLabel>Dentist</FormLabel>
                     <CheckboxGroup colorScheme='green'>
                         <HStack>
-                            {dentists.map(dentist => <Checkbox value={dentist.id}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Checkbox>)}
+                            {dentists.map(dentist => (
+                                <Checkbox value={dentist.id}>
+                                    {`Dr. ${dentist.firstName} ${dentist.lastName}`}
+                                </Checkbox>))}
                         </HStack>
                     </CheckboxGroup>
                 </FormControl>

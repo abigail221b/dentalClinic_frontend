@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import { ChakraProvider } from "@chakra-ui/react";
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import PatientsDasboard from "./pages/PatientsDashboard";
 import PatientDetail from "./pages/PatientDetail";
@@ -11,6 +8,9 @@ import DentistsDashboard from "./pages/DentistsDashboard";
 import Dashboard from './pages/Dashboard';
 import NewPatientForm from './pages/NewPatientForm';
 import NewDentistForm from './pages/NewDentistForm';
+
+import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

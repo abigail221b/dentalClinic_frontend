@@ -1,8 +1,9 @@
-import { Card, Flex, Heading, Text, Button, Box, ButtonGroup, Divider, Stack } from "@chakra-ui/react";
+import PatientDetailButtonGroup from "../components/PatientDetailButtonGroup";
+
+import { Card, Flex, Heading, Text, Divider, Stack } from "@chakra-ui/react";
 import { Grid, GridItem } from '@chakra-ui/react'
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import PatientDetailButtonGroup from "../components/PatientDetailButtonGroup";
 
 function PatientDetail() {
 
@@ -13,7 +14,7 @@ function PatientDetail() {
         const dob = Date.parse(dateOfBirth);
         const now = Date.now();
         const diff = now - dob;
-        
+
         return Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
     }
 

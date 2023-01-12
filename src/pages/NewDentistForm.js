@@ -28,7 +28,7 @@ function NewDentistForm() {
             })
         })
         .then(res => {
-            if(res.status === 200) 
+            if(res.status === 200)
                 navigate("/dentists");
         })
     }
@@ -39,21 +39,33 @@ function NewDentistForm() {
                 <HStack>
                     <FormControl isInvalid={formError && firstName === ""}>
                         <FormLabel>First Name</FormLabel>
-                        <Input type="text" value={firstName} onChange={e => setFirstName(e.target.value)} />
+                        <Input
+                            type="text"
+                            value={firstName}
+                            onChange={e => setFirstName(e.target.value)} />
                     </FormControl>
                     <FormControl isInvalid={formError && lastName === ""}>
                         <FormLabel>Last Name</FormLabel>
-                        <Input type="text" value={lastName} onChange={e => setLastName(e.target.value)} />
+                        <Input
+                            type="text"
+                            value={lastName}
+                            onChange={e => setLastName(e.target.value)} />
                     </FormControl>
                 </HStack>
                 <HStack>
                     <FormControl isInvalid={formError && phoneNumber === ""}>
                         <FormLabel>Phone Number</FormLabel>
-                        <Input type="tel" value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
+                        <Input
+                            type="tel"
+                            value={phoneNumber}
+                            onChange={e => setPhoneNumber(e.target.value)} />
                     </FormControl>
                     <FormControl isInvalid={formError && email === ""}>
                         <FormLabel>Email</FormLabel>
-                        <Input type="email" value={email} onChange={e => setEmail(e.target.value)} />
+                        <Input
+                            type="email"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)} />
                     </FormControl>
                 </HStack>
                 <Button width="100px" onClick={handleSubmit}>Submit</Button>

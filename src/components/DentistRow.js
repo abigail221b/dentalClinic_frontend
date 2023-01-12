@@ -1,6 +1,7 @@
+import DentistActionsGroup from "./DentistActionsGroup";
+
 import { Tr, Td } from "@chakra-ui/react";
 import { useState } from "react";
-import DentistActionsGroup from "./DentistActionsGroup";
 
 function DentistRow({ dentist: dentistData }) {
 
@@ -12,7 +13,11 @@ function DentistRow({ dentist: dentistData }) {
             <Td>{dentist.lastName}</Td>
             <Td>{dentist.phoneNumber}</Td>
             <Td>{dentist.email}</Td>
-            <Td><DentistActionsGroup dentist={dentist} setDentist={setDentist} /></Td>
+            <Td>
+                <DentistActionsGroup
+                    dentist={dentist}
+                    setDentist={setDentist} />
+            </Td>
         </Tr>
     );
 }

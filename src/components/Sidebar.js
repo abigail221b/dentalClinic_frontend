@@ -1,41 +1,42 @@
-import { Flex, Stack } from "@chakra-ui/react";
-import { BsGridFill, BsPersonBadgeFill, BsFillCalendar2EventFill, BsFillPersonLinesFill } from "react-icons/bs";
-import { useState } from "react";
 import SidebarLink from "./SidebarLink";
+
+import { BsGridFill, BsPersonBadgeFill, BsFillCalendar2EventFill, BsFillPersonLinesFill } from "react-icons/bs";
+import { Flex, Stack } from "@chakra-ui/react";
+import { useState } from "react";
 
 function Sidebar() {
 
     const [selectedDashboard, setSelectedDashboard] = useState(dashboards.DASHBOARD);
 
     return (
-        <Flex style={ styles.sidebar }>
+        <Flex style={styles.sidebar}>
             <Stack gap="7">
-                <SidebarLink 
-                    dashboard={ dashboards.DASHBOARD }
+                <SidebarLink
+                    dashboard={dashboards.DASHBOARD}
                     icon={<BsGridFill />}
                     url={"/"}
                     selectedDashboard={selectedDashboard}
                     setSelectedDashboard={setSelectedDashboard}
                     styles={styles}
                 />
-                <SidebarLink 
-                    dashboard={ dashboards.APPOINTMENTS }
+                <SidebarLink
+                    dashboard={dashboards.APPOINTMENTS}
                     icon={<BsFillCalendar2EventFill />}
                     url={"/appointments"}
                     selectedDashboard={selectedDashboard}
                     setSelectedDashboard={setSelectedDashboard}
                     styles={styles}
                 />
-                <SidebarLink 
-                    dashboard={ dashboards.PATIENTS }
+                <SidebarLink
+                    dashboard={dashboards.PATIENTS}
                     icon={<BsFillPersonLinesFill />}
                     url={"/patients"}
                     selectedDashboard={selectedDashboard}
                     setSelectedDashboard={setSelectedDashboard}
                     styles={styles}
                 />
-                <SidebarLink 
-                    dashboard={ dashboards.DENTISTS }
+                <SidebarLink
+                    dashboard={dashboards.DENTISTS}
                     icon={<BsPersonBadgeFill />}
                     url={"/dentists"}
                     selectedDashboard={selectedDashboard}
@@ -43,7 +44,7 @@ function Sidebar() {
                     styles={styles}
                 />
             </Stack>
-            
+
         </Flex>
     );
 }

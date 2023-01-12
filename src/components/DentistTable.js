@@ -1,5 +1,6 @@
-import { Box, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 import DentistRow from "./DentistRow";
+
+import { Box, Table, TableContainer, Tbody, Th, Thead, Tr } from "@chakra-ui/react";
 
 function DentistTable({ dentists }) {
     return (

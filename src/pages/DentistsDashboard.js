@@ -1,7 +1,8 @@
+import DentistTable from "../components/DentistTable";
+
 import { Flex, Button, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import DentistTable from "../components/DentistTable";
 
 function DentistsDashboard() {
 

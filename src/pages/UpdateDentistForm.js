@@ -1,14 +1,6 @@
-import { Heading, Flex, FormControl, FormLabel, Input, HStack, Button } from "@chakra-ui/react";
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, } from '@chakra-ui/react'
+import { Heading, FormControl, FormLabel, Input, HStack, Button } from "@chakra-ui/react";
 import { useState } from "react";
-import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-    ModalCloseButton,
-} from '@chakra-ui/react'
 
 function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: setDentistRow }) {
 
@@ -40,13 +32,13 @@ function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: s
                         <HStack>
                             <FormControl>
                                 <FormLabel>First Name</FormLabel>
-                                <Input type="text" 
-                                       value={dentist.firstName} 
+                                <Input type="text"
+                                       value={dentist.firstName}
                                        onChange={e => setDentist({...dentist, firstName: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Last Name</FormLabel>
-                                <Input type="text" 
+                                <Input type="text"
                                        value={dentist.lastName}
                                        onChange={e => setDentist({...dentist, lastName: e.target.value})} />
                             </FormControl>
@@ -54,13 +46,13 @@ function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: s
                         <HStack>
                             <FormControl>
                                 <FormLabel>Phone Number</FormLabel>
-                                <Input type="tel" 
+                                <Input type="tel"
                                        value={dentist.phoneNumber}
                                        onChange={e => setDentist({...dentist, phoneNumber: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Email</FormLabel>
-                                <Input type="email" 
+                                <Input type="email"
                                        value={dentist.email}
                                        onChange={e => setDentist({...dentist, email: e.target.value})} />
                             </FormControl>

@@ -1,6 +1,6 @@
+import { Flex, Tooltip, IconButton } from "@chakra-ui/react";
 import { RiEdit2Fill } from "react-icons/ri";
 import { RiDeleteBinFill } from "react-icons/ri";
-import { Flex, Tooltip, IconButton } from "@chakra-ui/react";
 
 function AppointmentActionsGroup() {
     return (

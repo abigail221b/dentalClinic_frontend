@@ -4,9 +4,7 @@ import {
     FormLabel,
     Input,
     RadioGroup,
-    Stack,
     Radio,
-    Skeleton
 } from '@chakra-ui/react';
 import {
     NumberInput,
@@ -92,7 +90,6 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                                 </Flex>
                             </RadioGroup>
                         </FormControl>
-
                         <Flex gap="6">
                             <FormControl isInvalid={formError && date === null}>
                                 <FormLabel>Date</FormLabel>
