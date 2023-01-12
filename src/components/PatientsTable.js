@@ -5,7 +5,7 @@ import { Box, Skeleton } from '@chakra-ui/react'
 
 function PatientsTable({ patients, loadingData }) {
     return (
-        <Box width="100%" height="auto" overflowY="scroll">
+        <Box width="100%" height="auto" overflowY="scroll" backgroundColor="white">
             <TableContainer width="100%">
                 <Table>
                     <Thead>

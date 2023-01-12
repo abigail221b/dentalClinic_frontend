@@ -34,7 +34,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
     }
 
     return (
-        <Card padding="25px" margin="10px 0">
+        <Card padding="25px" margin="10px 0" backgroundColor="white">
             <Stack gap="2">
                 <Heading size="md">Search Patients</Heading>
                 <Flex flexDirection="column" gap="3">
