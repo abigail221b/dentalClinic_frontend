@@ -22,7 +22,7 @@ function DentistTable({ dentists }) {
                                 <Td>{dentist.lastName}</Td>
                                 <Td>{dentist.phoneNumber}</Td>
                                 <Td>{dentist.email}</Td>
-                                <Td><DentistActionsGroup /></Td>
+                                <Td><DentistActionsGroup dentist={dentist}/></Td>
                             </Tr>
                         ))}
                         
