@@ -12,6 +12,8 @@ import {
 
 function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: setDentistRow }) {
 
+    const [dentist, setDentist] = useState(dentistRow);
+
     return (
         <>
             <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose} size="xl">
