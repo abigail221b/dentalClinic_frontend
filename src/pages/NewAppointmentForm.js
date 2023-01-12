@@ -39,10 +39,12 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
     const [submitSuccess, setSubmitSuccess] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:8080/dentists")
+        if(isOpen) {
+            fetch("http://localhost:8080/dentists")
             .then(res => res.json())
             .then(dentists => setDentists(dentists));
-    }, []);
+        }
+    }, [isOpen]);
 
     const handleSubmit = () => {
         if(selectedDentist === null || date === null || time === null || duration === "") {
