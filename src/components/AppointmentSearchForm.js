@@ -46,7 +46,7 @@ function AppointmentSearchForm() {
                         </HStack>
                     </CheckboxGroup>
                 </FormControl>
-                <Button width="100px">Search</Button>
+                <Button colorScheme="teal" width="100px">Search</Button>
             </Stack>
         </Card>
     );

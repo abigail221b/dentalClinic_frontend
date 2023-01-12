@@ -16,20 +16,20 @@ function PatientDetailButtonGroup({ patient, setPatient }) {
 
     return (
         <ButtonGroup>
-            <Button onClick={newApptFormOnOpen}>Book Appointment</Button>
+            <Button colorScheme="teal" onClick={newApptFormOnOpen}>Book Appointment</Button>
                 <NewAppointmentForm
                     isOpen={newApptFormIsOpen}
                     onClose={newApptFormOnClose}
                     patient={patient} />
 
-            <Button onClick={updateFormOnOpen}>Edit Patient</Button>
+            <Button colorScheme="teal" onClick={updateFormOnOpen}>Edit Patient</Button>
                 <UpdatePatientForm
                     isOpen={updateFormIsOpen}
                     onClose={updateFormOnClose}
                     patient={patient}
                     setPatient={setPatient} />
 
-            <Button>Delete Patient</Button>
+            <Button colorScheme="teal">Delete Patient</Button>
         </ButtonGroup>
     );
 }

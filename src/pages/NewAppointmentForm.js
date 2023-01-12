@@ -114,7 +114,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                         </Flex>
                     </ModalBody>
                     <ModalFooter>
-                        <Button onClick={handleSubmit}>Submit</Button>
+                        <Button onClick={handleSubmit} colorScheme="teal">Submit</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>

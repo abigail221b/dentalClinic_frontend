@@ -68,7 +68,7 @@ function NewDentistForm() {
                             onChange={e => setEmail(e.target.value)} />
                     </FormControl>
                 </HStack>
-                <Button width="100px" onClick={handleSubmit}>Submit</Button>
+                <Button colorScheme="teal" width="100px" onClick={handleSubmit}>Submit</Button>
         </Flex>
     );
 }

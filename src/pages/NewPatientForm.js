@@ -99,7 +99,7 @@ function NewPatientForm() {
                         value={address}
                         onChange={e => setAddress(e.target.value)} />
                 </FormControl>
-                <Button width="100px" onClick={handleSubmit}>Submit</Button>
+                <Button colorScheme="teal" width="100px" onClick={handleSubmit}>Submit</Button>
         </Flex>
     );
 }

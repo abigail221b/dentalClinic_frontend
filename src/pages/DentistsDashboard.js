@@ -18,7 +18,7 @@ function DentistsDashboard() {
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" gap="4" backgroundColor="#F9F9F9">
             <Flex justifyContent="space-between">
                 <Heading>Dentists</Heading>
-                <Button as={RouterLink} to="/dentists/new">New Dentist</Button>
+                <Button as={RouterLink} to="/dentists/new" colorScheme="teal">New Dentist</Button>
             </Flex>
             <Flex>
                 <DentistTable dentists={dentists}/>

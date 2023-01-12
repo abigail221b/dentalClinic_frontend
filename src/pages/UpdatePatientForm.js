@@ -85,7 +85,7 @@ function UpdatePatientForm({ isOpen, onClose, patient, setPatient }) {
                         </FormControl>
                     </ModalBody>
                     <ModalFooter>
-                        <Button width="100px" onClick={handleSubmit}>Update</Button>
+                        <Button colorScheme="teal" width="100px" onClick={handleSubmit}>Update</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
