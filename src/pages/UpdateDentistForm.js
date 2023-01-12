@@ -27,21 +27,29 @@ function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: s
                         <HStack>
                             <FormControl>
                                 <FormLabel>First Name</FormLabel>
-                                <Input type="text" value={dentist.firstName} />
+                                <Input type="text" 
+                                       value={dentist.firstName} 
+                                       onChange={e => setDentist({...dentist, firstName: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Last Name</FormLabel>
-                                <Input type="text" value={dentist.lastName} />
+                                <Input type="text" 
+                                       value={dentist.lastName}
+                                       onChange={e => setDentist({...dentist, lastName: e.target.value})} />
                             </FormControl>
                         </HStack>
                         <HStack>
                             <FormControl>
                                 <FormLabel>Phone Number</FormLabel>
-                                <Input type="tel" value={dentist.phoneNumber} />
+                                <Input type="tel" 
+                                       value={dentist.phoneNumber}
+                                       onChange={e => setDentist({...dentist, phoneNumber: e.target.value})} />
                             </FormControl>
                             <FormControl>
                                 <FormLabel>Email</FormLabel>
-                                <Input type="email" value={dentist.email} />
+                                <Input type="email" 
+                                       value={dentist.email}
+                                       onChange={e => setDentist({...dentist, email: e.target.value})} />
                             </FormControl>
                         </HStack>
                     </ModalBody>
