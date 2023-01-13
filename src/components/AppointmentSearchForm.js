@@ -21,20 +21,33 @@ function AppointmentSearchForm() {
             <Stack gap="2">
                 <Heading size="md">Search Appointments</Heading>
                 <FormControl as="fieldset">
-                    <RadioGroup onChange={setDateSearchBy} value={dateSearchBy}>
+                    <RadioGroup onChange={(e) => {
+                        setDateSearchBy(e);
+                        setDateRange([null, null]);
+                    }} value={dateSearchBy}>
                         <HStack>
                             <FormControl>
                                 <Radio value="date">Search by date</Radio>
                                 <Input
                                     type="date"
+                                    value={dateSearchBy === "date"? dateRange[0] : ""}
+                                    onChange={e => setDateRange([e.target.value, dateRange[1]])}
                                     isDisabled={ dateSearchBy !== "date"} />
                             </FormControl>
                             <FormControl>
                                 <Radio value="date-range">Search by date range</Radio>
                                 <HStack>
-                                    <Input type="date"  isDisabled={ dateSearchBy !== "date-range"}/>
+                                    <Input
+                                        type="date"
+                                        value={dateSearchBy === "date-range"? dateRange[0] : ""}
+                                        onChange={e => setDateRange([e.target.value, dateRange[1]])}
+                                        isDisabled={ dateSearchBy !== "date-range"}/>
                                     <Text> to </Text>
-                                    <Input type="date"  isDisabled={ dateSearchBy !== "date-range"}/>
+                                    <Input
+                                        type="date"
+                                        value={dateSearchBy === "date-range"? dateRange[1] : ""}
+                                        onChange={e => setDateRange([dateRange[0], e.target.value])}
+                                        isDisabled={ dateSearchBy !== "date-range"}/>
                                 </HStack>
                             </FormControl>
                         </HStack>
