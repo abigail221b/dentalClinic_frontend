@@ -2,7 +2,7 @@ import { FormControl, FormLabel, Input, Checkbox, CheckboxGroup, RadioGroup, Rad
 import { Heading, Button, HStack, Text, Card, Stack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
-function AppointmentSearchForm() {
+function AppointmentSearchForm({ setAppointments }) {
 
     const [dateSearchBy, setDateSearchBy] = useState("date");
     const [dentists, setDentists] = useState([]);
