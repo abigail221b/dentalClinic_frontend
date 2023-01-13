@@ -86,7 +86,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
                             <FormLabel>Select a Dentist</FormLabel>
                             <RadioGroup onChange={setSelectedDentist}>
                                 <Flex gap="5" wrap="wrap" paddingBottom="20px">
-                                {dentists.map(dentist => <Radio value={`${dentist.id}`}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Radio>)}
+                                    {dentists.map(dentist => <Radio value={`${dentist.id}`}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Radio>)}
                                 </Flex>
                             </RadioGroup>
                         </FormControl>
