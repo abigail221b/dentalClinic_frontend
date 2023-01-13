@@ -7,7 +7,7 @@ function AppointmentSearchForm({ setAppointments }) {
     const [dateSearchBy, setDateSearchBy] = useState("date");
     const [dentists, setDentists] = useState([]);
     const [dateRange, setDateRange] = useState([null, null]);
-    const [selectedDentist, setSelectedDentist] = useState([]);
+    const [selectedDentists, setSelectedDentists] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:8080/dentists")
@@ -19,9 +19,9 @@ function AppointmentSearchForm({ setAppointments }) {
         let url = "http://localhost:8080/appointments?";
 
         if(dateSearchBy === "date")
-            url = url + `date=${dateRange[0]}` + (selectedDentist.length > 0? `&dentistIds=${selectedDentist}` : "");
+            url = url + `date=${dateRange[0]}` + (selectedDentists.length > 0? `&dentistIds=${selectedDentists}` : "");
         else
-            url = url + `after=${dateRange[0]}&before=${dateRange[1]}` + (selectedDentist.length > 0? `&dentistIds=${selectedDentist}` : "");
+            url = url + `after=${dateRange[0]}&before=${dateRange[1]}` + (selectedDentists.length > 0? `&dentistIds=${selectedDentists}` : "");
 
         fetch(url)
         .then(res => res.json())
@@ -67,7 +67,7 @@ function AppointmentSearchForm({ setAppointments }) {
                 </FormControl>
                 <FormControl>
                     <FormLabel>Dentist</FormLabel>
-                    <CheckboxGroup colorScheme='green' value={selectedDentist} onChange={setSelectedDentist}>
+                    <CheckboxGroup colorScheme='green' value={selectedDentists} onChange={setSelectedDentists}>
                         <HStack>
                             {dentists.map(dentist => (
                                 <Checkbox value={`${dentist.id}`}>
