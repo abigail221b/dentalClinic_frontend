@@ -1,4 +1,5 @@
 import { Table, Thead, Tbody, Tr, Th, Td, TableContainer } from '@chakra-ui/react';
+import AppointmentActionsGroup from './AppointmentActionsGroup';
 
 function AppointmentsTable({ appointments }) {
     return (
@@ -24,7 +25,7 @@ function AppointmentsTable({ appointments }) {
                                 <Td>{appointment.id.startTime}</Td>
                                 <Td>{appointment.duration}</Td>
                                 <Td>{`Dr. ${appointment.dentist.firstName} ${appointment.dentist.lastName}`}</Td>
-                                <Td>Actions</Td>
+                                <Td><AppointmentActionsGroup /></Td>
                             </Tr>
                         ))}
                     </Tbody>
