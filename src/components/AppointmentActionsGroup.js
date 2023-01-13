@@ -10,7 +10,7 @@ function AppointmentActionsGroup() {
             </Tooltip>
 
             <Tooltip label="Delete Appointment">
-                <IconButton size="md" icon={<RiDeleteBinFill />} />
+                <IconButton colorScheme="red" size="md" icon={<RiDeleteBinFill />} />
             </Tooltip>
         </Flex>
     );
