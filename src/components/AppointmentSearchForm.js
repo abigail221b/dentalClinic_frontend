@@ -15,7 +15,18 @@ function AppointmentSearchForm({ setAppointments }) {
         .then(dentists => setDentists(dentists));
     }, []);
 
-    const handleSubmit = () => {}
+    const handleSubmit = () => {
+        let url = "http://localhost:8080/appointments?";
+
+        if(dateSearchBy === "date")
+            url = url + `date=${dateRange[0]}` + (selectedDentist.length > 0? `&dentistIds=${selectedDentist}` : "");
+        else
+            url = url + `after=${dateRange[0]}&before=${dateRange[1]}` + (selectedDentist.length > 0? `&dentistIds=${selectedDentist}` : "");
+
+        fetch(url)
+        .then(res => res.json())
+        .then(appointments => setAppointments(appointments));
+    }
 
     return (
         <Card padding="25px" margin="10px 0" backgroundColor="white">
