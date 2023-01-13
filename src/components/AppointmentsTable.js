@@ -1,6 +1,6 @@
 import { Table, Thead, Tbody, Tr, Th, TableContainer } from '@chakra-ui/react';
 
-function AppointmentsTable() {
+function AppointmentsTable({ appointments }) {
     return (
         <TableContainer backgroundColor="white">
                 <Table>
