@@ -1,4 +1,4 @@
-import { Table, Thead, Tbody, Tr, Th, TableContainer } from '@chakra-ui/react';
+import { Table, Thead, Tbody, Tr, Th, Td, TableContainer } from '@chakra-ui/react';
 
 function AppointmentsTable({ appointments }) {
     return (
@@ -16,7 +16,17 @@ function AppointmentsTable({ appointments }) {
                         </Tr>
                     </Thead>
                     <Tbody>
-
+                        {appointments.map(appointment => (
+                            <Tr>
+                                <Td>{appointment.id.patient.firstName}</Td>
+                                <Td>{appointment.id.patient.lastName}</Td>
+                                <Td>{appointment.id.date}</Td>
+                                <Td>{appointment.id.startTime}</Td>
+                                <Td>{appointment.duration}</Td>
+                                <Td>{`Dr. ${appointment.dentist.firstName} ${appointment.dentist.lastName}`}</Td>
+                                <Td>Actions</Td>
+                            </Tr>
+                        ))}
                     </Tbody>
                 </Table>
             </TableContainer>
