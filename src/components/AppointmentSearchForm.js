@@ -7,6 +7,7 @@ function AppointmentSearchForm() {
     const [dateSearchBy, setDateSearchBy] = useState("date");
     const [dentists, setDentists] = useState([]);
     const [dateRange, setDateRange] = useState([null, null]);
+    const [selectedDentist, setSelectedDentist] = useState([]);
 
     useEffect(() => {
         fetch("http://localhost:8080/dentists")
@@ -55,10 +56,10 @@ function AppointmentSearchForm() {
                 </FormControl>
                 <FormControl>
                     <FormLabel>Dentist</FormLabel>
-                    <CheckboxGroup colorScheme='green'>
+                    <CheckboxGroup colorScheme='green' value={selectedDentist} onChange={setSelectedDentist}>
                         <HStack>
                             {dentists.map(dentist => (
-                                <Checkbox value={dentist.id}>
+                                <Checkbox value={`${dentist.id}`}>
                                     {`Dr. ${dentist.firstName} ${dentist.lastName}`}
                                 </Checkbox>))}
                         </HStack>
