@@ -6,12 +6,15 @@ function AppointmentSearchForm() {
 
     const [dateSearchBy, setDateSearchBy] = useState("date");
     const [dentists, setDentists] = useState([]);
+    const [dateRange, setDateRange] = useState([null, null]);
 
     useEffect(() => {
         fetch("http://localhost:8080/dentists")
         .then(res => res.json())
         .then(dentists => setDentists(dentists));
     }, []);
+
+    const handleSubmit = () => {}
 
     return (
         <Card padding="25px" margin="10px 0" backgroundColor="white">
@@ -22,7 +25,9 @@ function AppointmentSearchForm() {
                         <HStack>
                             <FormControl>
                                 <Radio value="date">Search by date</Radio>
-                                <Input type="date"  isDisabled={ dateSearchBy !== "date"} />
+                                <Input
+                                    type="date"
+                                    isDisabled={ dateSearchBy !== "date"} />
                             </FormControl>
                             <FormControl>
                                 <Radio value="date-range">Search by date range</Radio>
@@ -46,7 +51,7 @@ function AppointmentSearchForm() {
                         </HStack>
                     </CheckboxGroup>
                 </FormControl>
-                <Button colorScheme="teal" width="100px">Search</Button>
+                <Button colorScheme="teal" width="100px" onClick={handleSubmit}>Search</Button>
             </Stack>
         </Card>
     );
