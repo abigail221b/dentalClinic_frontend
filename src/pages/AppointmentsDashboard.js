@@ -2,6 +2,7 @@ import AppointmentSearchForm from "../components/AppointmentSearchForm";
 import AppointmentsTable from "../components/AppointmentsTable";
 
 import { Flex, Heading } from "@chakra-ui/react";
+import { useState } from "react";
 
 function AppontmentsDashboard() {
 
