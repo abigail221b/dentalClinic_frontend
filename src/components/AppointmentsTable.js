@@ -2,7 +2,7 @@ import { Table, Thead, Tbody, Tr, Th, TableContainer } from '@chakra-ui/react';
 
 function AppointmentsTable() {
     return (
-        <TableContainer>
+        <TableContainer backgroundColor="white">
                 <Table>
                     <Thead>
                         <Tr>
