@@ -26,7 +26,7 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
                 <ModalBody>
                     <FormControl>
                         <FormLabel>Dentist</FormLabel>
-                        <RadioGroup>
+                        <RadioGroup value={appointment.dentist.id}>
                             <Flex gap="5" wrap="wrap" paddingBottom="20px">
                                 {dentists.map(dentist => <Radio value={dentist.id}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Radio>)}
                             </Flex>
@@ -35,15 +35,15 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
                     <Flex gap="6">
                         <FormControl>
                             <FormLabel>Date</FormLabel>
-                            <Input type="date" />
+                            <Input type="date" value={appointment.date} />
                         </FormControl>
                         <FormControl>
                             <FormLabel>Time</FormLabel>
-                            <Input type="time" />
+                            <Input type="time" value={appointment.startTime} />
                         </FormControl>
                         <FormControl>
                             <FormLabel>Duration</FormLabel>
-                            <NumberInput defaultValue={45} min={15} max={120} step={15}>
+                            <NumberInput defaultValue={appointment.duration} min={15} max={120} step={15}>
                                 <NumberInputField />
                                 <NumberInputStepper>
                                     <NumberIncrementStepper />
