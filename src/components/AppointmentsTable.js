@@ -19,10 +19,10 @@ function AppointmentsTable({ appointments }) {
                     <Tbody>
                         {appointments.map(appointment => (
                             <Tr>
-                                <Td>{appointment.id.patient.firstName}</Td>
-                                <Td>{appointment.id.patient.lastName}</Td>
-                                <Td>{appointment.id.date}</Td>
-                                <Td>{appointment.id.startTime}</Td>
+                                <Td>{appointment.patient.firstName}</Td>
+                                <Td>{appointment.patient.lastName}</Td>
+                                <Td>{appointment.date}</Td>
+                                <Td>{appointment.startTime}</Td>
                                 <Td>{appointment.duration}</Td>
                                 <Td>{`Dr. ${appointment.dentist.firstName} ${appointment.dentist.lastName}`}</Td>
                                 <Td><AppointmentActionsGroup /></Td>
