@@ -25,7 +25,7 @@ function AppointmentsTable({ appointments }) {
                                 <Td>{appointment.startTime}</Td>
                                 <Td>{appointment.duration}</Td>
                                 <Td>{`Dr. ${appointment.dentist.firstName} ${appointment.dentist.lastName}`}</Td>
-                                <Td><AppointmentActionsGroup /></Td>
+                                <Td><AppointmentActionsGroup appointment={appointment} /></Td>
                             </Tr>
                         ))}
                     </Tbody>
