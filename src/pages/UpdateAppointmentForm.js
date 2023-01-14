@@ -2,11 +2,18 @@ import { NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepp
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, } from '@chakra-ui/react'
 import { FormControl, FormLabel, Input, RadioGroup, Radio } from '@chakra-ui/react';
 import { Flex, Heading, Text, Button } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow }) {
 
     const [appointment, setAppointment] = useState(appointmentRow);
+    const [dentists, setDentists] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/dentists")
+        .then(res => res.json)
+        .then(dentists => setDentists(dentists));
+    }, []);
 
     return (
         <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose} size="xl">
