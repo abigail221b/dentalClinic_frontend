@@ -11,7 +11,7 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
 
     useEffect(() => {
         fetch("http://localhost:8080/dentists")
-        .then(res => res.json)
+        .then(res => res.json())
         .then(dentists => setDentists(dentists));
     }, []);
 
