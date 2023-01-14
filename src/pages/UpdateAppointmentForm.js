@@ -35,7 +35,7 @@ function UpdateAppointmentForm() {
                     </NumberInput>
                 </FormControl>
             </Flex>
-            <Button width="100px">Submit</Button>
+            <Button width="100px" colorScheme="teal">Submit</Button>
         </Flex>
     );
 }
