@@ -43,6 +43,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                             <FormLabel>First Name</FormLabel>
                                 <Input
                                     type='text'
+                                    size="sm"
                                     value={firstName}
                                     onChange={(e) => {
                                         setFirstName(e.target.value);
@@ -54,6 +55,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                             <FormLabel>Last Name</FormLabel>
                                 <Input
                                     type='text'
+                                    size="sm"
                                     value={lastName}
                                     onChange={(e) => {
                                         setLastName(e.target.value);
@@ -67,6 +69,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                             <FormLabel>Phone Number</FormLabel>
                                 <Input
                                     type='tel'
+                                    size="sm"
                                     value={phoneNumber}
                                     onChange={(e) => {
                                         setPhoneNumber(e.target.value);
@@ -78,6 +81,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
                             <FormLabel>Date of Birth</FormLabel>
                                 <Input
                                     type='date'
+                                    size="sm"
                                     value={dateOfBirth}
                                     onChange={(e) => {
                                         setDateOfBirth(e.target.value);

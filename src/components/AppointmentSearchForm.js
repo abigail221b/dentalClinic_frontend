@@ -42,6 +42,7 @@ function AppointmentSearchForm({ setAppointments }) {
                                 <Radio value="date">Search by date</Radio>
                                 <Input
                                     type="date"
+                                    size="sm"
                                     value={dateSearchBy === "date"? dateRange[0] : ""}
                                     onChange={e => setDateRange([e.target.value, dateRange[1]])}
                                     isDisabled={ dateSearchBy !== "date"} />
@@ -51,12 +52,14 @@ function AppointmentSearchForm({ setAppointments }) {
                                 <HStack>
                                     <Input
                                         type="date"
+                                        size="sm"
                                         value={dateSearchBy === "date-range"? dateRange[0] : ""}
                                         onChange={e => setDateRange([e.target.value, dateRange[1]])}
                                         isDisabled={ dateSearchBy !== "date-range"}/>
                                     <Text> to </Text>
                                     <Input
                                         type="date"
+                                        size="sm"
                                         value={dateSearchBy === "date-range"? dateRange[1] : ""}
                                         onChange={e => setDateRange([dateRange[0], e.target.value])}
                                         isDisabled={ dateSearchBy !== "date-range"}/>
