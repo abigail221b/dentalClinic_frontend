@@ -28,8 +28,7 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
                         <FormLabel>Dentist</FormLabel>
                         <RadioGroup>
                             <Flex gap="5" wrap="wrap" paddingBottom="20px">
-                                <Radio value="1">Dr. 1</Radio>
-                                <Radio value="2">Dr. 2</Radio>
+                                {dentists.map(dentist => <Radio value={dentist.id}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Radio>)}
                             </Flex>
                         </RadioGroup>
                     </FormControl>
