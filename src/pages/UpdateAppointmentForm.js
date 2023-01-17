@@ -38,15 +38,25 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
                     <Flex gap="6">
                         <FormControl>
                             <FormLabel>Date</FormLabel>
-                            <Input type="date" value={appointment.date} />
+                            <Input
+                                type="date"
+                                value={appointment.date}
+                                onChange={e => setAppointment({...appointment, date: e.target.value})} />
                         </FormControl>
                         <FormControl>
                             <FormLabel>Time</FormLabel>
-                            <Input type="time" value={appointment.startTime} />
+                            <Input
+                                type="time"
+                                value={appointment.startTime}
+                                onChange={e => setAppointment({...appointment, startTime: e.target.value})} />
                         </FormControl>
                         <FormControl>
                             <FormLabel>Duration</FormLabel>
-                            <NumberInput defaultValue={appointment.duration} min={15} max={120} step={15}>
+                            <NumberInput
+                                defaultValue={appointment.duration}
+                                min={15} max={120} step={15}
+                                onChange={e => setAppointment({...appointment, duration: e})}>
+
                                 <NumberInputField />
                                 <NumberInputStepper>
                                     <NumberIncrementStepper />
