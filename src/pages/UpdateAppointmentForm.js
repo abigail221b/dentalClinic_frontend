@@ -26,7 +26,10 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
                 <ModalBody>
                     <FormControl>
                         <FormLabel>Dentist</FormLabel>
-                        <RadioGroup value={appointment.dentist.id}>
+                        <RadioGroup
+                            value={appointment.dentist.id}
+                            onChange={e => setAppointment({...appointment, dentist: { id: Number(e) }})}>
+
                             <Flex gap="5" wrap="wrap" paddingBottom="20px">
                                 {dentists.map(dentist => <Radio value={dentist.id}>{`Dr. ${dentist.firstName} ${dentist.lastName}`}</Radio>)}
                             </Flex>
