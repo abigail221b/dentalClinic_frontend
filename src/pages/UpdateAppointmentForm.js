@@ -15,6 +15,15 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
         .then(dentists => setDentists(dentists));
     }, []);
 
+    const handleSubmit = () => {
+        fetch(`http://localhost:8080/appointments/${appointment.id}`, {
+            method: "PUT",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify(appointment)
+        })
+        .then(() => onClose());
+    }
+
     return (
         <Modal closeOnOverlayClick={true} isOpen={isOpen} onClose={onClose} size="xl">
             <ModalOverlay />
@@ -67,7 +76,7 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
                     </Flex>
                 </ModalBody>
                 <ModalFooter>
-                    <Button width="100px" colorScheme="teal">Submit</Button>
+                    <Button width="100px" colorScheme="teal" onClick={handleSubmit}>Submit</Button>
                 </ModalFooter>
             </ModalContent>
         </Modal>
