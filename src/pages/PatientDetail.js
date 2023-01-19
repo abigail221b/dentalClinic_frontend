@@ -3,12 +3,20 @@ import PatientDetailButtonGroup from "../components/PatientDetailButtonGroup";
 import { Card, Flex, Heading, Text, Divider, Stack } from "@chakra-ui/react";
 import { Grid, GridItem } from '@chakra-ui/react'
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import AppointmentsTable from "../components/AppointmentsTable";
 
 function PatientDetail() {
 
     const location = useLocation();
     const [patient, setPatient] = useState(location.state.patient);
+    const [upcomingAppointments, setUpcomingAppointments] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/patients/${patient.id}/appointments?after=${new Date()}`)
+        .then(res => res.json())
+        .then(setUpcomingAppointments);
+    }, []);
 
     const calculateAge = (dateOfBirth) => {
         const dob = Date.parse(dateOfBirth);
@@ -58,6 +66,9 @@ function PatientDetail() {
             </Card>
             <Card borderRadius="10px" width="100%" padding="25px">
                 <Heading size="md">Upcoming Appointments</Heading>
+                <AppointmentsTable
+                    appointments={upcomingAppointments}
+                    displayPatientName={false} />
             </Card>
             <Card borderRadius="10px" width="100%" padding="25px">
                 <Heading size="md">Latest Payments</Heading>
