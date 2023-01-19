@@ -1,4 +1,4 @@
-import { Flex, Heading, TableContainer, Table, Thead, Tbody, Tr, Th } from "@chakra-ui/react";
+import { Flex, Heading, TableContainer, Table, Thead, Tbody, Tr, Td, Th, Button } from "@chakra-ui/react";
 import { Grid, GridItem } from '@chakra-ui/react'
 
 function Dashboard() {
@@ -26,6 +26,14 @@ function Dashboard() {
                             </Tbody>
                         </Table>
                     </TableContainer>
+                </GridItem>
+                <GridItem>
+                    <Heading size="md">Quick Links</Heading>
+                    <Flex flexDirection="column" width="100%" gap={3}>
+                        <Button>New Patient</Button>
+                        <Button>New Patient</Button>
+                        <Button>New Patient</Button>
+                    </Flex>
                 </GridItem>
             </Grid>
         </Flex>
