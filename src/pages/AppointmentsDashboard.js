@@ -12,7 +12,9 @@ function AppontmentsDashboard() {
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" backgroundColor="#F9F9F9">
             <Heading>Appointments</Heading>
             <AppointmentSearchForm setAppointments={setAppointments} />
-            <AppointmentsTable appointments={appointments} />
+            <AppointmentsTable
+                appointments={appointments}
+                displayPatientName={true} />
         </Flex>
     );
 }
