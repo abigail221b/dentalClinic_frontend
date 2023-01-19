@@ -1,7 +1,23 @@
 import { Flex, Heading, TableContainer, Table, Thead, Tbody, Tr, Td, Th, Button } from "@chakra-ui/react";
 import { Grid, GridItem } from '@chakra-ui/react'
+import { useEffect, useState } from "react";
+import AppointmentActionsGroup from "../components/AppointmentActionsGroup";
 
 function Dashboard() {
+
+    const [todaysAppointments, setTodaysAppointments] = useState([]);
+
+    useEffect(() => {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = (1 + now.getMonth()) < 10? `0${1 + now.getMonth()}` : `${1 + now.getMonth()}`;
+        const day = now.getDate();
+
+        fetch(`http://localhost:8080/appointments?date=${year}-${month}-${day}`)
+        .then(res => res.json())
+        .then(setTodaysAppointments);
+    }, []);
+
     return (
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" backgroundColor="#F9F9F9">
             <Heading>Dashboard</Heading>
@@ -22,7 +38,16 @@ function Dashboard() {
                                 </Tr>
                             </Thead>
                             <Tbody>
-
+                                {todaysAppointments.map(appointment =>
+                                    <Tr>
+                                        <Td>{appointment.patient.firstName}</Td>
+                                        <Td>{appointment.patient.lastName}</Td>
+                                        <Td>{appointment.date}</Td>
+                                        <Td>{appointment.time}</Td>
+                                        <Td>{appointment.duration}</Td>
+                                        <Td>{`Dr. ${appointment.dentist.firstName} ${appointment.dentist.lastName}`}</Td>
+                                        <Td><AppointmentActionsGroup appointment={appointment} /></Td>
+                                    </Tr>)}
                             </Tbody>
                         </Table>
                     </TableContainer>
