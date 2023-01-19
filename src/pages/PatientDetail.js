@@ -13,10 +13,15 @@ function PatientDetail() {
     const [upcomingAppointments, setUpcomingAppointments] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8080/patients/${patient.id}/appointments?after=${new Date()}`)
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = (1 + now.getMonth()) < 10? `0${1 + now.getMonth()}` : `${1 + now.getMonth()}`;
+        const day = now.getDate();
+
+        fetch(`http://localhost:8080/patients/${patient.id}/appointments?after=${year}-${month}-${day}`)
         .then(res => res.json())
         .then(setUpcomingAppointments);
-    }, []);
+    }, [patient.id]);
 
     const calculateAge = (dateOfBirth) => {
         const dob = Date.parse(dateOfBirth);
