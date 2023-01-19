@@ -4,7 +4,7 @@ import AppointmentsTable from "../components/AppointmentsTable";
 import { Flex, Heading } from "@chakra-ui/react";
 import { useState } from "react";
 
-function AppontmentsDashboard() {
+function AppointmentsDashboard() {
 
     const [appointments, setAppointments] = useState([]);
 
@@ -19,4 +19,4 @@ function AppontmentsDashboard() {
     );
 }
 
-export default AppontmentsDashboard;
+export default AppointmentsDashboard;
