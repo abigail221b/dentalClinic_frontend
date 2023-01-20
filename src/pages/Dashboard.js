@@ -21,9 +21,9 @@ function Dashboard() {
     return (
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" backgroundColor="#F9F9F9">
             <Grid height="100%" templateColumns="repeat(5, 1fr)" templateRows="repeat(6, 1fr)" gap={6}>
-                <GridItem rowSpan={3} colSpan={4} >
+                <GridItem rowSpan={4} colSpan={4} >
                     <Heading size="md">Today's Appointments ({new Date().toDateString()})</Heading>
-                    <TableContainer backgroundColor="white" height="550px" overflowY="scroll">
+                    <TableContainer backgroundColor="white" height="100%" overflowY="scroll">
                         <Table>
                             <Thead>
                                 <Tr>
