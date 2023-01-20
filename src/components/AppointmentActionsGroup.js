@@ -1,18 +1,24 @@
+import UpdateAppointmentForm from "../pages/UpdateAppointmentForm";
+
 import { Flex, Tooltip, IconButton, useDisclosure } from "@chakra-ui/react";
 import { RiEdit2Fill } from "react-icons/ri";
 import { RiDeleteBinFill } from "react-icons/ri";
-import UpdateAppointmentForm from "../pages/UpdateAppointmentForm";
 
 function AppointmentActionsGroup({ appointment }) {
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen: updateAppointmentIsOpen,
+            onOpen: updateAppointmentOnOpen,
+            onClose: updateAppointmentOnClose } = useDisclosure();
 
     return (
         <Flex gap="5">
             <Tooltip label="Update Appointment">
-                <IconButton onClick={onOpen} size="md" icon={<RiEdit2Fill />} />
+                <IconButton onClick={updateAppointmentOnOpen} size="md" icon={<RiEdit2Fill />} />
             </Tooltip>
-            <UpdateAppointmentForm isOpen={isOpen} onClose={onClose} appointment={appointment} />
+            <UpdateAppointmentForm
+                isOpen={updateAppointmentIsOpen}
+                onClose={updateAppointmentOnClose}
+                appointment={appointment} />
 
             <Tooltip label="Delete Appointment">
                 <IconButton colorScheme="red" size="md" icon={<RiDeleteBinFill />} />
