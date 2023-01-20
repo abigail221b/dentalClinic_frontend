@@ -5,7 +5,9 @@ import { RiEdit2Fill, RiDeleteBinFill } from "react-icons/ri";
 
 function DentistActionsGroup({ dentist, setDentist }) {
 
-    const {isOpen, onOpen, onClose} = useDisclosure();
+    const { isOpen: updateDentistIsOpen,
+            onOpen: updateDentistOnOpen,
+            onClose: updateDentistOnClose } = useDisclosure();
 
     const handleDelete = () => {
         fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/dentists/${dentist.id}`, { method: "DELETE" });
@@ -14,9 +16,13 @@ function DentistActionsGroup({ dentist, setDentist }) {
     return (
         <Flex gap="5">
             <Tooltip label="Update Dentist">
-                <IconButton onClick={onOpen} size="md" icon={<RiEdit2Fill />} />
+                <IconButton onClick={updateDentistOnOpen} size="md" icon={<RiEdit2Fill />} />
             </Tooltip>
-            <UpdateDentistForm isOpen={isOpen} onClose={onClose} dentist={dentist} setDentist={setDentist} />
+            <UpdateDentistForm
+                isOpen={updateDentistIsOpen}
+                onClose={updateDentistOnClose}
+                dentist={dentist}
+                setDentist={setDentist} />
 
             <Tooltip label="Delete Dentist">
                 <IconButton onClick={handleDelete} size="md" colorScheme="red" icon={<RiDeleteBinFill />} />
