@@ -54,10 +54,14 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
-                patientId: patient.id,
+                patient: {
+                    id: patient.id
+                },
                 date: date,
                 startTime: time,
-                dentistId: selectedDentist,
+                dentist: {
+                    id: selectedDentist
+                },
                 duration: duration
             })
         })
