@@ -3,6 +3,7 @@ import UpdatePatientForm from "../pages/UpdatePatientForm";
 
 import { ButtonGroup, Button } from "@chakra-ui/react";
 import { useDisclosure } from '@chakra-ui/react';
+import DeletePrompt from "./DeletePrompt";
 
 function PatientDetailButtonGroup({ patient, setPatient }) {
 
@@ -13,6 +14,10 @@ function PatientDetailButtonGroup({ patient, setPatient }) {
     const { isOpen: updateFormIsOpen,
             onOpen: updateFormOnOpen,
             onClose: updateFormOnClose } = useDisclosure();
+
+    const { isOpen: deletePromptIsOpen,
+            onOpen: deletePromptOnOpen,
+            onClose: deletePromptOnClose } = useDisclosure();
 
     return (
         <ButtonGroup>
@@ -29,7 +34,12 @@ function PatientDetailButtonGroup({ patient, setPatient }) {
                     patient={patient}
                     setPatient={setPatient} />
 
-            <Button colorScheme="red">Delete Patient</Button>
+            <Button colorScheme="red" onClick={deletePromptOnOpen}>Delete Patient</Button>
+                <DeletePrompt
+                    isOpen={deletePromptIsOpen}
+                    onClose={deletePromptOnClose}
+                    message={"Are you sure you want to delete patient?"}
+                    endpoint={`http://${process.env.REACT_APP_BACKEND_HOST}:8080/patients/${patient.id}`} />
         </ButtonGroup>
     );
 }
