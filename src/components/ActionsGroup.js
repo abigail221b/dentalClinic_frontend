@@ -1,4 +1,5 @@
 import NewAppointmentForm from "../pages/NewAppointmentForm";
+import DeletePrompt from "./DeletePrompt";
 
 import { BsPersonLinesFill } from "react-icons/bs";
 import { IoMdAdd } from "react-icons/io";
@@ -42,8 +43,13 @@ function ActionsGroup({ patient }) {
             </Tooltip>
 
             <Tooltip label="Delete patient">
-                <IconButton size="md" colorScheme="red" icon={<RiDeleteBinFill />} />
+                <IconButton onClick={deletePromptOnOpen} size="md" colorScheme="red" icon={<RiDeleteBinFill />} />
             </Tooltip>
+            <DeletePrompt
+                isOpen={deletePromptIsOpen}
+                onClose={deletePromptOnClose}
+                message={"Are you sure you want to delete this patient?"}
+                endpoint={`http://${process.env.REACT_APP_BACKEND_HOST}:8080/patients/${patient.id}`} />
         </Flex>
     );
 }
