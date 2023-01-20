@@ -13,6 +13,10 @@ function ActionsGroup({ patient }) {
             onOpen: newAppointmentFormOnOpen,
             onClose: newAppointmentFormOnClose } = useDisclosure();
 
+    const { isOpen: deletePromptIsOpen,
+            onOpen: deletePromptOnOpen,
+            onClose: deletePromptOnClose } = useDisclosure();
+
     const navigate = useNavigate();
 
     const navigateToPatientDetails = () => {
