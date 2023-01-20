@@ -20,11 +20,10 @@ function Dashboard() {
 
     return (
         <Flex flexDirection="column" width="100%" height="100vh" padding="25px" backgroundColor="#F9F9F9">
-            <Heading>Dashboard</Heading>
-            <Grid templateColumns="repeat(4, 1fr)" templateRows="repeat(5, 1fr)" gap={6}>
-                <GridItem rowSpan={2} colSpan={3}>
-                    <Heading size="md">Today's Appointments</Heading>
-                    <TableContainer backgroundColor="white">
+            <Grid height="100%" templateColumns="repeat(5, 1fr)" templateRows="repeat(6, 1fr)" gap={6}>
+                <GridItem rowSpan={3} colSpan={4} >
+                    <Heading size="md">Today's Appointments ({new Date().toDateString()})</Heading>
+                    <TableContainer backgroundColor="white" height="550px" overflowY="scroll">
                         <Table>
                             <Thead>
                                 <Tr>
@@ -52,9 +51,9 @@ function Dashboard() {
                         </Table>
                     </TableContainer>
                 </GridItem>
-                <GridItem>
+                <GridItem rowSpan={2} colSpan={1}>
                     <Heading size="md">Quick Links</Heading>
-                    <Flex flexDirection="column" width="100%" gap={3}>
+                    <Flex flexDirection="column" gap={3}>
                         <Button>New Patient</Button>
                         <Button>New Patient</Button>
                         <Button>New Patient</Button>
