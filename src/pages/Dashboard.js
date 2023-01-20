@@ -42,7 +42,7 @@ function Dashboard() {
                                         <Td>{appointment.patient.firstName}</Td>
                                         <Td>{appointment.patient.lastName}</Td>
                                         <Td>{appointment.date}</Td>
-                                        <Td>{appointment.time}</Td>
+                                        <Td>{appointment.startTime}</Td>
                                         <Td>{appointment.duration}</Td>
                                         <Td>{`Dr. ${appointment.dentist.firstName} ${appointment.dentist.lastName}`}</Td>
                                         <Td><AppointmentActionsGroup appointment={appointment} /></Td>
