@@ -10,6 +10,10 @@ function AppointmentActionsGroup({ appointment }) {
             onOpen: updateAppointmentOnOpen,
             onClose: updateAppointmentOnClose } = useDisclosure();
 
+    const { isOpen: deletePromptIsOpen,
+            onOpen: deletePromptOnOpen,
+            onClose: deletePromptOnClose } = useDisclosure();
+
     return (
         <Flex gap="5">
             <Tooltip label="Update Appointment">
