@@ -21,6 +21,7 @@ jobs:
         run: npm run build
         env:
           REACT_APP_BACKEND_HOST: ${{ secrets.SPRING_BOOT }}
+          CI: false
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
