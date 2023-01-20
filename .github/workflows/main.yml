@@ -6,16 +6,26 @@ on:
     - main
     
 jobs:
-  deploy:
+  build-and-deploy-app:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - uses: jeanlescure/react-deploy-to-s3-action@main
-      with:
-        args: --acl public-read --follow-symlinks --delete
-      env:
-        REACT_APP_BACKEND_HOST: ${{ secrets.SPRING_BOOT }}
-        AWS_S3_BUCKET: ${{  secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: us-east-1
+      - name: Checking out code
+        uses: actions/checkout@main
+      - name: Installing Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - name: Installing dependencies
+        run: npm install
+      - name: Building project
+        run: npm run build
+        env:
+          REACT_APP_BACKEND_HOST: ${{ secrets.SPRING_BOOT }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: us-east-1
+      - name: Deploy to S3 bucket
+        run: aws s3 sync ./dist/ s3://dental-clinic-app --delete
