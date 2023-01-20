@@ -38,7 +38,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
 
     useEffect(() => {
         if(isOpen) {
-            fetch("http://localhost:8080/dentists")
+            fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/dentists`)
             .then(res => res.json())
             .then(dentists => setDentists(dentists));
         }
@@ -50,7 +50,7 @@ function NewAppointmentForm({ isOpen, onClose, patient }) {
             return;
         }
 
-        fetch("http://localhost:8080/appointments", {
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/appointments`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({

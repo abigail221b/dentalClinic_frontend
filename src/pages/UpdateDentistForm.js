@@ -7,7 +7,7 @@ function UpdateDentistForm({ isOpen, onClose, dentist: dentistRow, setDentist: s
     const [dentist, setDentist] = useState(dentistRow);
 
     const handleSubmit = () => {
-        fetch(`http://localhost:8080/dentists/${dentist.id}`, {
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/dentists/${dentist.id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dentist)

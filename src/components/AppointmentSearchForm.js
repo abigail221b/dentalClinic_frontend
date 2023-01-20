@@ -10,13 +10,13 @@ function AppointmentSearchForm({ setAppointments }) {
     const [selectedDentists, setSelectedDentists] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/dentists")
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/dentists`)
         .then(res => res.json())
         .then(dentists => setDentists(dentists));
     }, []);
 
     const handleSubmit = () => {
-        let url = "http://localhost:8080/appointments?";
+        let url = `http://${process.env.REACT_APP_BACKEND_HOST}:8080/appointments?`;
 
         if(dateSearchBy === "date")
             url = url + `date=${dateRange[0]}` + (selectedDentists.length > 0? `&dentistIds=${selectedDentists}` : "");

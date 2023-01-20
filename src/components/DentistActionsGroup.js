@@ -8,7 +8,7 @@ function DentistActionsGroup({ dentist, setDentist }) {
     const {isOpen, onOpen, onClose} = useDisclosure();
 
     const handleDelete = () => {
-        fetch(`http://localhost:8080/dentists/${dentist.id}`, { method: "DELETE" });
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/dentists/${dentist.id}`, { method: "DELETE" });
     }
 
     return (

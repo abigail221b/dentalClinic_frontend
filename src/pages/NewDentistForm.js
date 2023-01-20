@@ -17,7 +17,7 @@ function NewDentistForm() {
             return;
         }
 
-        fetch("http://localhost:8080/dentists", {
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/dentists`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

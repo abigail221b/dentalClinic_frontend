@@ -22,7 +22,7 @@ function NewPatientForm() {
             return;
         }
 
-        fetch(`http://localhost:8080/patients`, {
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/patients`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

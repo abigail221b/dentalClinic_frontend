@@ -11,7 +11,7 @@ function PatientsDashboard() {
     const [loadingData, setLoadingData] = useState(false);
 
     useEffect(() => {
-        fetch("http://localhost:8080/patients")
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/patients`)
         .then(res => res.json())
         .then(patients => setPatients(patients));
     }, []);

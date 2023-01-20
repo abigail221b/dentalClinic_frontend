@@ -10,13 +10,13 @@ function UpdateAppointmentForm({ isOpen, onClose, appointment: appointmentRow })
     const [dentists, setDentists] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:8080/dentists")
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/dentists`)
         .then(res => res.json())
         .then(dentists => setDentists(dentists));
     }, []);
 
     const handleSubmit = () => {
-        fetch(`http://localhost:8080/appointments/${appointment.id}`, {
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/appointments/${appointment.id}`, {
             method: "PUT",
             headers: { "Content-type": "application/json" },
             body: JSON.stringify(appointment)

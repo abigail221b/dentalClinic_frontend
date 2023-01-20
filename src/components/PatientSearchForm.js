@@ -27,7 +27,7 @@ function PatientSearchForm({ setPatients, setLoadingData }) {
 
         setLoadingData(true);
 
-        fetch(`http://localhost:8080/patients?${queryParams}`)
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/patients?${queryParams}`)
             .then(res => res.json())
             .then(patients => setPatients(patients))
             .then(() => setLoadingData(false));

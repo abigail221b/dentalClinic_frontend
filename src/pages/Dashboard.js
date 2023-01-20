@@ -13,7 +13,7 @@ function Dashboard() {
         const month = (1 + now.getMonth()) < 10? `0${1 + now.getMonth()}` : `${1 + now.getMonth()}`;
         const day = now.getDate();
 
-        fetch(`http://localhost:8080/appointments?date=${year}-${month}-${day}`)
+        fetch(`http://${process.env.REACT_APP_BACKEND_HOST}:8080/appointments?date=${year}-${month}-${day}`)
         .then(res => res.json())
         .then(setTodaysAppointments);
     }, []);
