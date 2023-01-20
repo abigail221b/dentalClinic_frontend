@@ -1,10 +1,17 @@
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, HStack, } from '@chakra-ui/react'
 import { Button, Text } from "@chakra-ui/react";
+import {  useNavigate } from "react-router-dom";
 
 function DeletePrompt({ isOpen, onClose, message, endpoint }) {
 
+    const navigate = useNavigate();
+
     const handleDelete = () => {
-        fetch(endpoint, { method: "DELETE" });
+        fetch(endpoint, { method: "DELETE" })
+        .then(res => {
+            if(res.status === 200)
+                navigate("/");
+        });
     }
 
     return (
