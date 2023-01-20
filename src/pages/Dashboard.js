@@ -54,9 +54,9 @@ function Dashboard() {
                 <GridItem rowSpan={2} colSpan={1}>
                     <Heading size="md">Quick Links</Heading>
                     <Flex flexDirection="column" gap={3}>
-                        <Button>New Patient</Button>
-                        <Button>New Patient</Button>
-                        <Button>New Patient</Button>
+                        <Button colorScheme="yellow">New Patient</Button>
+                        <Button colorScheme="yellow">New Appointment</Button>
+                        <Button colorScheme="yellow">Create Invoice</Button>
                     </Flex>
                 </GridItem>
             </Grid>
