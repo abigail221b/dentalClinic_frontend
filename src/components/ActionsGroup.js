@@ -9,7 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 function ActionsGroup({ patient }) {
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen: newAppointmentFormIsOpen,
+            onOpen: newAppointmentFormOnOpen,
+            onClose: newAppointmentFormOnClose } = useDisclosure();
+
     const navigate = useNavigate();
 
     const navigateToPatientDetails = () => {
@@ -23,9 +26,12 @@ function ActionsGroup({ patient }) {
     return (
         <Flex gap="5">
             <Tooltip label="Book Appointment">
-                <IconButton onClick={onOpen} size="md" icon={<IoMdAdd />} />
+                <IconButton onClick={newAppointmentFormOnOpen} size="md" icon={<IoMdAdd />} />
             </Tooltip>
-            <NewAppointmentForm isOpen={isOpen} onClose={onClose} patient={patient} />
+            <NewAppointmentForm
+                isOpen={newAppointmentFormIsOpen}
+                onClose={newAppointmentFormOnClose}
+                patient={patient} />
 
             <Tooltip label="Patient Details">
                 <IconButton onClick={navigateToPatientDetails} size="md" icon={<BsPersonLinesFill />} />
