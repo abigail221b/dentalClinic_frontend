@@ -1,4 +1,5 @@
 import UpdateAppointmentForm from "../pages/UpdateAppointmentForm";
+import DeletePrompt from "./DeletePrompt";
 
 import { Flex, Tooltip, IconButton, useDisclosure } from "@chakra-ui/react";
 import { RiEdit2Fill } from "react-icons/ri";
@@ -25,8 +26,13 @@ function AppointmentActionsGroup({ appointment }) {
                 appointment={appointment} />
 
             <Tooltip label="Delete Appointment">
-                <IconButton colorScheme="red" size="md" icon={<RiDeleteBinFill />} />
+                <IconButton onClick={deletePromptOnOpen} colorScheme="red" size="md" icon={<RiDeleteBinFill />} />
             </Tooltip>
+            <DeletePrompt
+                isOpen={deletePromptIsOpen}
+                onClose={deletePromptOnClose}
+                message={"Are you sure you want to cancel this appointment?"}
+                endpoint={`http://${process.env.REACT_APP_BACKEND_HOST}:8080/appointments/${appointment.id}`} />
         </Flex>
     );
 }
